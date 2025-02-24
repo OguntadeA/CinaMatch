@@ -1,5 +1,5 @@
-Persona 1 ->
-Persona 2 ->
-Persona 3 ->
-Persona 4 ->
-Persona 5 ->
+Persona 1 -> (Name/Link)
+Persona 2 -> (Name/Link)
+Persona 3 -> (Name/Link)
+Persona 4 -> (Name/Link)
+Persona 5 -> (Name/Link)
