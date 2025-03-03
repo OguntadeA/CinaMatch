@@ -8,3 +8,7 @@
 - **OSupporting Data:**< 73.6% are either Very Likely or Somewhat likely to use this feature. 13.2% are neutral, and the remaining 13.2% are unlikely to use it.  This shows that the majority of respondents are in strong support of the feature. 
 - **OTeam Action (if any):** We must ensure that created recommendation watchlists have the ability to be shared with other users in as seamless a way as possible. This could present itself in the form of a shareable link, or text message, so that it can be accessed on as many platforms as possible. 
 
+**Observation 1: Ayishat**
+-**Observation Statement**: A large majority of users are between the ages of 18-24, and the gender of our users are equal therefore this will affect the UI/UX design of the app.
+-**Supporting Data**: From the quiz, I found that 92.5 percent of people are between the ages of 18-24. Also 45.3 percent of users are female, and 49.1 percent are males, and 5.7 percent are nonbinary. 
+-**Team Action (if any):** Design a UI tailored to Gen Z/Millennials, focusing on modern aesthetics, dark mode, personalization, mobile-first optimization, and inclusivity.
