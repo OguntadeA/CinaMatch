@@ -1,3 +1,8 @@
+**Observation 2: Roquibat** <br>
+- **Observation Statement:** A large number of people find that the genre is the most important factor when it comes to deciding a movie. This factor shows that the implementation of letting the users filter what they want to watch by genre plays a crucial role in the user experience when using the app. 
+- **Supporting Data:** 84.9% (45 out of 53) responses show that the users find this aspect and way of filtering a key factor amongst others when choosing a movie or TV-show to watch. 
+- **Team Action (if any):** Prioritize implementing in filtering by genre to ensure convenience for users in app experience
+
 **Observation 3: John Cullinane** <br>
 - **Observation Statement:** A large majority of the respondents report that they solely rely on memory to keep track of the shows/movies they want to watch. Respondents also frequently respond saying that they are overwhelmed by the large amount of shows/movies available to them. This indicates that people may struggle to remember all the shows and movies they want to watch and that they could benefit from a watch list, but may not have used one before.
 - **Supporting Data:** 67.9% of respondents reported “I rely on memory” to how they keep track of shows and movies, and 69.8% of respondents reported that they would be either ‘Very likely’ or ‘Somewhat likely’ to use a feature that allowed them to create a watch list for movies and TV shows.
