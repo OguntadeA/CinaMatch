@@ -8,6 +8,11 @@
 - **Supporting Data:** 67.9% of respondents reported “I rely on memory” to how they keep track of shows and movies, and 69.8% of respondents reported that they would be either ‘Very likely’ or ‘Somewhat likely’ to use a feature that allowed them to create a watch list for movies and TV shows.
 - **Team Action (if any):** Given that nearly 70% of respondents expressed interest in such a feature, our team could focus on creating an intuitive and accessible design that encourages users to easily add, organize, and access their watch list.
 
+**Observation 4: Kishan**
+- **Observation Statement**: A large number of respondents want a way to filter movies and tv shows based on the streaming services that they have. 
+- **OSupporting Data:**< 79.2% of respondents responded “yes” to the question “Would you like to filter recommendations based on the streaming services you are subscribed to?”
+- **OTeam Action (if any):** Ensure that there is a filtering option for users to pick and filter the movie and tv show recommendations based on streaming services that the user has.
+
 **Observation 5: Zachary**
 - **Observation Statement**: People are very interested in a feature that would allow them to share watchlists with their friends. This is an even larger portion of interest than the basic watchlist feature. 
 - **OSupporting Data:**< 73.6% are either Very Likely or Somewhat likely to use this feature. 13.2% are neutral, and the remaining 13.2% are unlikely to use it.  This shows that the majority of respondents are in strong support of the feature. 
