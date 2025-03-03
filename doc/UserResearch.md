@@ -10,8 +10,8 @@
 
 **Observation 4: Kishan**
 - **Observation Statement**: A large number of respondents want a way to filter movies and tv shows based on the streaming services that they have. 
-- **OSupporting Data:**< 79.2% of respondents responded “yes” to the question “Would you like to filter recommendations based on the streaming services you are subscribed to?”
-- **OTeam Action (if any):** Ensure that there is a filtering option for users to pick and filter the movie and tv show recommendations based on streaming services that the user has.
+- **Supporting Data:** 79.2% of respondents responded “yes” to the question “Would you like to filter recommendations based on the streaming services you are subscribed to?”
+- **Team Action (if any):** Ensure that there is a filtering option for users to pick and filter the movie and tv show recommendations based on streaming services that the user has.
 
 **Observation 5: Zachary**
 - **Observation Statement**: People are very interested in a feature that would allow them to share watchlists with their friends. This is an even larger portion of interest than the basic watchlist feature. 
