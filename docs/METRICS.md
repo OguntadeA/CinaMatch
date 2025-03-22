@@ -34,13 +34,14 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 3. Calculate the count of 5-star ratings from your database.  
 
 ---
+## 3. Time to Complete Signup/Signin
 
-## 3. Time Spent on Application Weekly
-**Firebase Collection:** Track user activity with timestamps or logs.  
+### Firebase Collection: Tracking Signup/Signin Time
 
-- **Collection:** `user_activity`  
-- **Document Fields:**  
-  - `user_id` (string)  
-  - `session_start` (timestamp)  
-  - `session_end` (timestamp)  
-  - `session_duration` (number)  
+**Collection:** `user_activity`
+
+**Document Fields:**
+- `user_id` (string) → User's Firebase UID
+- `session_start` (timestamp) → Time when the user begins the signup/signin process
+- `session_end` (timestamp) → Time when the signup/signin process completes
+- `session_duration` (number) → Total time taken (in seconds)
