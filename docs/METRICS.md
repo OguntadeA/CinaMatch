@@ -45,3 +45,14 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 - `session_start` (timestamp) → Time when the user begins the signup/signin process
 - `session_end` (timestamp) → Time when the signup/signin process completes
 - `session_duration` (number) → Total time taken (in seconds)
+
+---
+## 4. Crash Rate of Users
+
+### Firebase Collection: Crash Free Users
+
+**Collection:** `user_success`
+
+**Document Fields:**
+- `user_id` (string) → User's Firebase UID
+- `session_success` (boolean) → Returns True if the user does not crash using the app. (Using Firebase built in metric for A/B testing).
