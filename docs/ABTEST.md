@@ -140,3 +140,39 @@ New users may not recognize the value of the Watchlist or may not engage with it
 
 ## Rationale:
 Introducing the Watchlist early in the user journey may drive higher adoption rates, helping users engage with Cinamatch's core features. If the test shows a significant increase in Watchlist usage and retention, the onboarding prompt could be implemented permanently.
+
+# A/B Test 4: Dedicated Search Page vs. Homepage Search Bar for Movie Discovery
+
+**US4 - Golden Path**
+
+## Metrics:
+- **Happiness:** User satisfaction ratings (via surveys or feedback).
+- **Engagement:** Number of searches performed per session.
+- **Adoption:** Percentage of users who use the search feature.
+- **Retention:** Return rate of users who used the search function.
+- **Task Success:** Time taken to find and select a movie.
+
+## Hypothesis:
+A dedicated search page for movies will improve search engagement and discovery by providing a focused experience, leading to more searches and higher user satisfaction compared to having a search bar on the homepage.
+
+## Problem:
+Currently, users search for movies using a search bar on the homepage, which may not be as prominent or intuitive. If users struggle to locate or effectively use the search bar, they may abandon their search, reducing engagement and retention. By testing a dedicated search page, we aim to determine whether a more structured and immersive search experience leads to higher interaction rates and better movie discovery.
+
+## Experiment Setup:
+### Experiment Audience:
+- Target Audience: 50% of users will be randomly assigned to the control (homepage search bar) and the other 50% to the variant (dedicated search page).
+  
+### Firebase Setup:
+- Use **Firebase A/B Testing** to randomly assign users.
+- 50% of users will be randomly assigned to the control (homepage search bar) and the other 50% to the variant (dedicated search page).
+
+### Tracking:
+- Search engagement (number of searches per user session).
+- Click-through rate (CTR) on search results.
+- Time spent on search interactions.
+- Bounce rate from search results page.
+- Conversion rate (how many users select a movie to watch).
+
+### Variation A (Existing Setup):
+Users search for movies using a search bar located on the homepage.
+Minimal search suggestions or filters.
