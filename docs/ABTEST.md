@@ -44,3 +44,46 @@ Currently, users can only add movies to their watchlist from the **Watchlist Pag
 
 ## Rationale:
 By keeping the "Add to Watchlist" button on the **Watchlist Page**, we align the action of saving content with the user's intent to manage and organize their saved movies. The Watchlist page already acts as a central hub for users' saved content, so having the button here may feel more intuitive and natural. This test will help us understand if users are more likely to interact with the button when they are in the right context.
+
+
+# A/B Test 2: Streamlined Sign-Up vs. Guided Tour
+
+**US1 (Sign Up and Login)**
+
+## Metrics:
+- **New Sign-ups:** How many users successfully create an account.
+- **Use Retetion Rate:** Number of users who leave during sign-up or while exploring the guided tour.
+
+## Hypothesis:
+We hypothesize that **Variant A** (minimal fields + quick intro) will boost adoption rates due to lower friction. Meanwhile, **Variant B** (guided tour overlay) could better educate new users on CinaMatch’s features, potentially enhancing longer-term engagement, but may also lead to higher drop-off if the tour feels lengthy.
+
+## Problem:
+If the onboarding process is either too brief or too complicated, new users may not see the value of CinaMatch’s core features (like watch list creation or personalized recommendations) and abandon the platform early. Striking the right balance between simplicity and thorough explanation is crucial to maximizing user adoption.
+
+## Experiment Setup:
+### Experiment Audience:
+- Split new users into two groups (50% each).
+- Users are randomly assigned to either **Variant A** (Streamlined Sign-Up) or **Variant B** (Guided Tour).
+
+### Firebase Setup:
+- Use **Firebase A/B Testing** to randomly assign users.
+- Track events in **Firebase Analytics** such as:
+  - `signup_started`
+  - `signup_completed`
+  - `onboarding_dropoff`
+
+### Tracking:
+- Number of sign-ups completed in each variant.
+- How many users engage with core features within their first session.
+- Where and when users drop off during the onboarding flow.
+
+### Variation A (Streamlined Sign-Up):
+- **Flow:** Minimal required fields (e.g., email, password) followed by a concise intro to CinaMatch’s features.
+- **Design:** Emphasis on a quick, easy start to reduce friction.
+
+### Variation B (Guided Tour Overlay):
+- **Flow:** Standard sign-up fields, then an overlay that guides users through key features like watch list creation and personalized recommendations.
+- **Design:** Step-by-step introduction, highlighting each feature’s benefits and how to use them.
+
+## Rationale:
+By comparing a **fast, frictionless** sign-up (Variant A) with a **feature-rich guided** experience (Variant B), we will discover which approach best fosters initial adoption without compromising user understanding. The results will inform how to balance simplicity and guidance in CinaMatch’s onboarding to maximize both immediate sign-ups and sustained engagement.
