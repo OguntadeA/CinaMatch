@@ -87,3 +87,56 @@ If the onboarding process is either too brief or too complicated, new users may 
 
 ## Rationale:
 By comparing a **fast, frictionless** sign-up (Variant A) with a **feature-rich guided** experience (Variant B), we will discover which approach best fosters initial adoption without compromising user understanding. The results will inform how to balance simplicity and guidance in CinaMatch’s onboarding to maximize both immediate sign-ups and sustained engagement.
+
+# A/B Test 3: Adoption – Onboarding Prompt vs. No Prompt for Watchlist Feature
+
+**US1 (USER LOGIN AND SIGN UP)**
+
+## Metrics:
+- **Watchlist Adoption Rate:** Percentage of new users who add at least one movie to their watchlist within their first session.
+- **Sign-Up Completion Rate:** Percentage of users who complete the sign-up process after seeing the Watchlist prompt.
+- **Time to First Watchlist Addition:** Average time it takes for a new user to add their first movie to the watchlist.
+- **Retention Rate:** Percentage of users who return and interact with their watchlist within 7 days.
+- **Drop-off Rate:** Percentage of users who dismiss the onboarding prompt without adding a movie or signing up.
+
+## Hypothesis:
+We hypothesize that introducing a Watchlist onboarding prompt during sign-up will increase adoption. If users understand the benefits of the Watchlist early, they will be more likely to engage with the feature and return to the app. Without this introduction, users may overlook the Watchlist or delay using it, leading to lower adoption rates.
+
+## Problem:
+New users may not recognize the value of the Watchlist or may not engage with it immediately after signing up. If the feature isn't introduced early, it may go unused, reducing retention and user satisfaction. By guiding users during sign-up or their first session, we expect to increase Watchlist usage.
+
+## Experiment Setup:
+
+### Experiment Audience:
+- New users split into two groups (50% each).
+- Random assignment to:
+  - **Variation A (Onboarding Prompt Shown):** A Watchlist prompt appears during or immediately after sign-up.
+  - **Variation B (No Onboarding Prompt):** Users discover the Watchlist on their own.
+
+### Firebase Setup:
+- **Trigger onboarding prompt for Variation A** during or immediately after sign-up.
+- Track key events:
+  - **sign_up_completed**: When a user completes the sign-up process.
+  - **watchlist_prompt_shown**: When the onboarding prompt appears.
+  - **watchlist_prompt_dismissed**: If the user closes the prompt without adding a movie.
+  - **movie_added_to_watchlist_first_time**: First successful addition to the Watchlist.
+  - **watchlist_return_visit**: If the user interacts with their Watchlist again within 7 days.
+
+### Tracking:
+- Compare **watchlist adoption rate** between the two groups.
+- Measure if the prompt **affects sign-up completion** (does it encourage or discourage users?).
+- Analyze **time to first use** to see if the prompt accelerates Watchlist engagement.
+- Measure **retention impact** (return visits to the Watchlist).
+
+## Variations:
+
+### Variation A (Onboarding Prompt Shown):
+- After signing up or signing in for the first time, users see a pop-up:
+  - *"Welcome to Cinamatch! Start building your Watchlist and never lose track of what you want to watch."*
+  - Includes a **“Start Your Watchlist”** button leading them to the feature.
+
+### Variation B (No Onboarding Prompt):
+- No guidance; users must discover the Watchlist feature naturally.
+
+## Rationale:
+Introducing the Watchlist early in the user journey may drive higher adoption rates, helping users engage with Cinamatch's core features. If the test shows a significant increase in Watchlist usage and retention, the onboarding prompt could be implemented permanently.
