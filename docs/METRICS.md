@@ -56,3 +56,16 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 **Document Fields:**
 - `user_id` (string) → User's Firebase UID
 - `session_success` (boolean) → Returns True if the user does not crash using the app. (Using Firebase built in metric for A/B testing).
+
+---
+## 5. Adding to Watchlist
+
+### Firebase Collection: Keeping Track of how often users add to their watchlists 
+
+**Collection:** `add_movie`
+
+**Document Fields:**
+- `user_id` (string)
+- `movie_id' (string)
+- `timestamp` (timestamp)
+- `movie_action'(integer)
