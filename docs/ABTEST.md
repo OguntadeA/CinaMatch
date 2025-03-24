@@ -87,3 +87,61 @@ If the onboarding process is either too brief or too complicated, new users may 
 
 ## Rationale:
 By comparing a **fast, frictionless** sign-up (Variant A) with a **feature-rich guided** experience (Variant B), we will discover which approach best fosters initial adoption without compromising user understanding. The results will inform how to balance simplicity and guidance in CinaMatch’s onboarding to maximize both immediate sign-ups and sustained engagement.
+
+# A/B Test 3: Personalized Recommendations vs. No Recommendations
+
+**US5 (Recommendation Feature)**
+
+## Metrics:
+- **Time Spent in App:** Average session duration per user.  
+- **Watchlist Shares:** Number of times users share their watchlists.  
+- **Movies Added to Watchlists:** Number of new movies/shows added to watchlists.  
+- **User Retention Rate:** Percentage of users returning to interact with watchlists after initial engagement.
+
+## Hypothesis  
+We hypothesize that **Variant A** (personalized recommendations) will increase user engagement by suggesting relevant content, leading to more movies added and higher retention. **Variant B** (no recommendations) serves as the baseline, allowing us to measure natural user behavior without any intervention.  
+
+## Problem  
+If users don’t receive relevant recommendations, they may not explore new content, therefore reducing overall engagement and increasing drop-off rates. However, overly aggressive suggestions could overwhelm users and lead to unengagement. Getting the right balance between personalized recommendations and discovery is essential for boosting retention.  
+
+## Experiment Setup  
+
+### Experiment Audience  
+- Split new and existing users into two groups (50% each).  
+- New users are get assigned to **Variant B** (No Recommendations) and existing users are assigneed to **Variant A** (Personalized Recommendations).
+
+### Firebase Setup  
+- Use **Firebase A/B Testing** to assign variants.  
+- Track events in **Firebase Analytics** such as:  
+  - `watchlist_add` – Movie added to a watchlist.  
+  - `watchlist_share` – Watchlist shared.  
+  - `recommendation_clicked` – Recommendation engaged with.  
+  - `session_duration` – Time spent in the app.
+ 
+  ###  Tracking  
+- Number of movies added to watchlists.  
+- Frequency of watchlist shares.  
+- Retention rate after 7 and 14 days of initial engagement.  
+- Engagement with recommended content.  
+- Average session duration after adding to a watchlist.
+
+## 🎥 Variation A (Personalized Recommendations)  
+- **Flow:** After a user adds a movie to their watchlist, display a **“Recommended for You”** section suggesting similar movies.  
+- **Design:** Recommendations are personalized based on watchlist content and viewing history. 
+- **Goal:** Increase watchlist activity and time spent in the app by suggesting relevant content.  
+
+## Variation B (No Recommendations)  
+- **Flow:** After adding a movie to the watchlist, users only see their existing watchlist with no suggestions.  
+- **Design:** Standard interface without a recommendation section.  
+- **Goal:** Measure baseline behavior and assess the impact of recommendations by comparing against natural user interactions.  
+
+## Rationale  
+By comparing **personalized recommendations** (Variant A) with **no recommendations** (Variant B), we can evaluate the impact of personalized suggestions on user engagement and retention. The results will guide future improvements to watchlist management and recommendation strategies in CinaMatch.  
+
+
+
+
+
+
+
+
