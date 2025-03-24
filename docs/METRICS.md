@@ -69,3 +69,17 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 - `movie_id` (string) → keeps track of what the user added
 - `timestamp` (timestamp) → when the user added
 - `movie_action`(integer) → amount of times the user added
+
+## 6: **Account Creation Rate**  
+
+
+**Collection:** `account_creations`  
+
+**Document Fields:**  
+- `user_id` (string) → User's Firebase UID  
+- `created_at` (timestamp) → Time when the user successfully creates an account  
+- `source` (string) → The source of signup (e.g., email, Google, Apple)  
+
+---
+
+
