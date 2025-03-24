@@ -65,7 +65,7 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 **Collection:** `add_movie`
 
 **Document Fields:**
-- `user_id` (string)
-- `movie_id` (string)
-- `timestamp` (timestamp)
-- `movie_action`(integer)
+- `user_id` (string) → keeps track of the users id 
+- `movie_id` (string) → keeps track of what the user added
+- `timestamp` (timestamp) → when the user added
+- `movie_action`(integer) → amount of times the user added
