@@ -66,6 +66,6 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 
 **Document Fields:**
 - `user_id` (string)
-- `movie_id' (string)
+- `movie_id` (string)
 - `timestamp` (timestamp)
-- `movie_action'(integer)
+- `movie_action`(integer)
