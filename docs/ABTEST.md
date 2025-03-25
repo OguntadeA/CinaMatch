@@ -177,55 +177,57 @@ Currently, users search for movies using a search bar on the homepage, which may
 Users search for movies using a search bar located on the homepage.
 Minimal search suggestions or filters.
 
-# A/B Test 5: Personalized Recommendations vs. No Recommendations
 
+# A/B Test 5: Login Page Color Change vs. No Color Change  
 
-**US5 (Recommendation Feature)**
+**US1 (Visual Engagement Feature – Login Page)**  
 
-## Metrics:
-- **Time Spent in App:** Average session duration per user.  
-- **Watchlist Shares:** Number of times users share their watchlists.  
-- **Movies Added to Watchlists:** Number of new movies/shows added to watchlists.  
-- **User Retention Rate:** Percentage of users returning to interact with watchlists after initial engagement.
+## Metrics:  
+- **Login Conversion Rate**: Percentage of users who successfully log in after landing on the login page.  
+- **Time Spent on Login Page**: Average duration users spend on the login page.  
+- **Drop-off Rate**: Percentage of users who leave without completing the login process.  
+- **Retention Rate**: Percentage of logged-in users who return after 7 and 14 days.  
 
 ## Hypothesis  
-We hypothesize that **Variant A** (personalized recommendations) will increase user engagement by suggesting relevant content, leading to more movies added and higher retention. **Variant B** (no recommendations) serves as the baseline, allowing us to measure natural user behavior without any intervention.  
+We hypothesize that **Variant A** (login page with color change) will create a more engaging and visually appealing login experience, encouraging more users to complete the login process and return to the app. **Variant B** (no color change) serves as the baseline to measure natural user behavior without any visual changes.  
 
 ## Problem  
-If users don’t receive relevant recommendations, they may not explore new content, therefore reducing overall engagement and increasing drop-off rates. However, overly aggressive suggestions could overwhelm users and lead to unengagement. Getting the right balance between personalized recommendations and discovery is essential for boosting retention.  
+A static login page may feel uninspiring, potentially leading to lower login completion rates and higher drop-offs. However, excessive visual changes could distract users and increase drop-off rates. A balanced visual enhancement can positively influence login conversion and user retention.  
 
 ## Experiment Setup  
 
 ### Experiment Audience  
 - Split new and existing users into two groups (50% each).  
-- New users are get assigned to **Variant B** (No Recommendations) and existing users are assigneed to **Variant A** (Personalized Recommendations).
+- New users are assigned to **Variant B** (No Color Change) and existing users are assigned to **Variant A** (Login Page Color Change).  
 
 ### Firebase Setup  
 - Use **Firebase A/B Testing** to assign variants.  
 - Track events in **Firebase Analytics** such as:  
-  - `watchlist_add` – Movie added to a watchlist.  
-  - `watchlist_share` – Watchlist shared.  
-  - `recommendation_clicked` – Recommendation engaged with.  
-  - `session_duration` – Time spent in the app.
- 
-  ###  Tracking  
-- Number of movies added to watchlists.  
-- Frequency of watchlist shares.  
-- Retention rate after 7 and 14 days of initial engagement.  
-- Engagement with recommended content.  
-- Average session duration after adding to a watchlist.
+  - `login_attempt` – User attempts to log in.  
+  - `login_success` – Successful login.  
+  - `color_interaction` – User interaction during color change.  
+  - `session_start` – Time spent after successful login.  
 
-## Variation A (Personalized Recommendations)  
-- **Flow:** After a user adds a movie to their watchlist, display a **“Recommended for You”** section suggesting similar movies.  
-- **Design:** Recommendations are personalized based on watchlist content and viewing history. 
-- **Goal:** Increase watchlist activity and time spent in the app by suggesting relevant content.  
+### Tracking  
+- Successful login conversion rates.  
+- Drop-off rate on the login page.  
+- Retention rate after 7 and 14 days.  
+- Engagement after successful login.  
+- Time spent on the login page before login.  
 
-## Variation B (No Recommendations)  
-- **Flow:** After adding a movie to the watchlist, users only see their existing watchlist with no suggestions.  
-- **Design:** Standard interface without a recommendation section.  
-- **Goal:** Measure baseline behavior and assess the impact of recommendations by comparing against natural user interactions.  
+## Variation A (Login Page Color Change)  
+- **Flow**: When users land on the login page, the background color gradually transitions between **#D2B48C** (tan) and **#B0BEC5** (grey) every 5 seconds.  
+- **Design**:  
+  - Smooth transition between tan and grey to create a calming and visually appealing effect.  
+  - The transition effect remains subtle to avoid overwhelming users.  
+- **Goal**: Increase login conversion rates and time spent on the login page by creating a more engaging environment.  
+
+## Variation B (No Color Change)  
+- **Flow**: Users see the standard login page with a static background.  
+- **Design**:  
+  - Default login interface with no visual changes.  
+- **Goal**: Measure baseline login behavior and assess the impact of the color-changing feature by comparing against natural user interactions.  
 
 ## Rationale  
-By comparing **personalized recommendations** (Variant A) with **no recommendations** (Variant B), we can evaluate the impact of personalized suggestions on user engagement and retention. The results will guide future improvements to watchlist management and recommendation strategies in CinaMatch.  
-
+By comparing **login page color changes** (Variant A) with **no color change** (Variant B), we can assess the impact of visual enhancements on login conversions, drop-off rates, and user engagement. These insights will help optimize the login experience and future design choices for CinaMatch.
 
