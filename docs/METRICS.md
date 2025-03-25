@@ -60,17 +60,16 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 - `session_count`  (number) → Total number of sessions within a given period
 
 ---
-## 5. Adding to Watchlist
+## 5. Time spent on search page 
 
-### Firebase Collection: Keeping Track of how often users add to their watchlists 
+### Firebase Collection: Keeping Track of how long the usre is on the search page for. 
 
-**Collection:** `add_movie`
+**Collection:** `search_time`
 
 **Document Fields:**
 - `user_id` (string) → keeps track of the users id 
-- `movie_id` (string) → keeps track of what the user added
-- `timestamp` (timestamp) → when the user added
-- `movie_action`(integer) → amount of times the user added
+- `num_search` (string) → keeps track of how many times this user searches
+- `search_len` (integer) → how long the user is on the page for
 
 ## 6: **Account Creation Rate**  
 
