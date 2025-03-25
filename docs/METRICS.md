@@ -84,7 +84,7 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 
 ---
 
-
+### new version of metrics
 
 ## 1. Media Search Utalization
 
@@ -97,5 +97,17 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 - 'timestamp' (timestamp) → when the searched for something
 
 More fields can be added when filters and other specific search modifiers get added
+
+
+## 2. Adoption Metric (New User Signups & Feature Usage)
+
+### Firebase Collection  
+Create a Firestore collection for tracking user signups and feature usage.
+
+### Collection: `users`  
+#### Document Fields:  
+- **`user_id` (string)** – Unique identifier for the user.  
+- **`created_at` (timestamp)** – The date and time when the user signed up.  
+- **`has_used_feature` (boolean)** – Indicates whether the user has used at least one feature.  
 
 
