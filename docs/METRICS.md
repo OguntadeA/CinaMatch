@@ -47,15 +47,17 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 - `session_duration` (number) → Total time taken (in seconds)
 
 ---
-## 4. Crash Rate of Users
+## 4. Retention Rate
 
-### Firebase Collection: Crash Free Users
+### Firebase Collection: Create a Firestore collection for tracking user retention.
 
-**Collection:** `user_success`
+**Collection:** `user_retention`
 
 **Document Fields:**
 - `user_id` (string) → User's Firebase UID
-- `session_success` (boolean) → Returns True if the user does not crash using the app. (Using Firebase built in metric for A/B testing).
+- `first_session` (timestamp) → Timestamp of the user’s first session
+- `last_session` (timestamp) → Timestamp of the most recent session
+- `session_count`  (number) → Total number of sessions within a given period
 
 ---
 ## 5. Adding to Watchlist
