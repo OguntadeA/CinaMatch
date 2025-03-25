@@ -83,3 +83,17 @@ Google HEART Framework Link ------> https://docs.google.com/presentation/d/1qdIy
 ---
 
 
+
+## 1. Media Search Utalization
+
+### Firebase Collection: Keeps track of how many times a user as has searched for someting.
+
+**Collection:** 'user_search'
+
+** Document Fields **
+- 'search' (string) → tracks what they searched
+- 'timestamp' (timestamp) → when the searched for something
+
+More fields can be added when filters and other specific search modifiers get added
+
+
