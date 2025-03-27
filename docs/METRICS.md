@@ -54,7 +54,13 @@ Create a Firestore collection for tracking user signups and feature usage.
 - **Document Fields:**  
   - `nps_score` (number)  
   - `user_id` (string)  
-  - `timestamp` (timestamp)  
+  - `timestamp` (timestamp)
+ 
+## 6. User search
+**Firebase COllection** Create a Firestore collection when a user searches
+- ** Collection **
+- **Document Fields:**
+  - 'user_search' (string)
 
 **FlutterFlow Integration:**  
 1. Create a form where users can rate their likelihood to recommend your app (usually on a scale of 0 to 10).  
