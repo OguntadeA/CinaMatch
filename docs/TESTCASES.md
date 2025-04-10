@@ -3,4 +3,4 @@
 
 - <link to template slide> US3: Backend Management
 - <link to template slide> US4: {Golden Path description}
-- <link [to template slide](https://docs.google.com/presentation/d/1T7LOaLJHLBYkGoIY_3BxeRDeE3qr0SrM-AeM9iadqDs/edit?usp=sharing)> US5: Recommendation Feature
+- [US5: Recommendation Feature](https://docs.google.com/presentation/d/1T7LOaLJHLBYkGoIY_3BxeRDeE3qr0SrM-AeM9iadqDs/edit?usp=sharing)> 
