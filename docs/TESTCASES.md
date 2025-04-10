@@ -1,4 +1,4 @@
-- <link to template slide> US1: User Account Creation
+- [US 1 User Account Creation](https://docs.google.com/presentation/d/1DtYLglQBzsBc0_Fkj_AceznrkvS-OcxKwK1AtrYFifc/edit?usp=sharing)
 - [US 2 Login](https://docs.google.com/presentation/d/1rxox-OgDh6j-x_GS7LAMA8H9iIh3_DziAaKI-PFFIPQ/edit?usp=sharing)
 
 - <link to template slide> US3: Backend Management
