@@ -1,4 +1,4 @@
-# CinaMatch
+# lock-orientation-library
 
 A new Flutter project.
 
