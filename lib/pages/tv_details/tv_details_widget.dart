@@ -48,7 +48,7 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
   Widget build(BuildContext context) {
     return FutureBuilder<ApiCallResponse>(
       future: SearchTVIDCall.call(
-        seriesId: widget.id?.toString(),
+        seriesId: widget.id,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -375,10 +375,10 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                             50.0, 0.0, 0.0, 10.0),
                         child: Text(
                           valueOrDefault<String>(
-                            TvIdResultsStruct.maybeFromMap(
+                            TvIDResultsStruct.maybeFromMap(
                                     tvDetailsSearchTVIDResponse.jsonBody)
                                 ?.name,
-                            'TV Name',
+                            'name',
                           ),
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -421,7 +421,7 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                           borderRadius: BorderRadius.circular(0.0),
                           child: Image.network(
                             functions.urlConcatinator(
-                                TvIdResultsStruct.maybeFromMap(
+                                TvIDResultsStruct.maybeFromMap(
                                         tvDetailsSearchTVIDResponse.jsonBody)
                                     ?.posterPath)!,
                             width: 153.8,
@@ -436,7 +436,7 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                         alignment: AlignmentDirectional(0.0, -1.0),
                         child: Text(
                           valueOrDefault<String>(
-                            TvIdResultsStruct.maybeFromMap(
+                            TvIDResultsStruct.maybeFromMap(
                                     tvDetailsSearchTVIDResponse.jsonBody)
                                 ?.overview,
                             'overview',
@@ -515,13 +515,10 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                                   ),
                         ),
                         Text(
-                          valueOrDefault<String>(
-                            TvIdResultsStruct.maybeFromMap(
-                                    tvDetailsSearchTVIDResponse.jsonBody)
-                                ?.voteAverage
-                                .toString(),
-                            'score',
-                          ),
+                          TvIDResultsStruct.maybeFromMap(
+                                  tvDetailsSearchTVIDResponse.jsonBody)!
+                              .voteAverage
+                              .toString(),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
@@ -560,7 +557,7 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                         Expanded(
                           child: Builder(
                             builder: (context) {
-                              final genres = TvIdResultsStruct.maybeFromMap(
+                              final genres = TvIDResultsStruct.maybeFromMap(
                                           tvDetailsSearchTVIDResponse.jsonBody)
                                       ?.genres
                                       .toList() ??
@@ -653,10 +650,10 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                TvIdResultsStruct.maybeFromMap(
+                                TvIDResultsStruct.maybeFromMap(
                                         tvDetailsSearchTVIDResponse.jsonBody)
                                     ?.firstAirDate,
-                                'first air date',
+                                'first airing',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -676,10 +673,10 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                             ),
                             Text(
                               valueOrDefault<String>(
-                                TvIdResultsStruct.maybeFromMap(
+                                TvIDResultsStruct.maybeFromMap(
                                         tvDetailsSearchTVIDResponse.jsonBody)
                                     ?.lastAirDate,
-                                'last air date',
+                                'last air',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -720,14 +717,10 @@ class _TvDetailsWidgetState extends State<TvDetailsWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Text(
-                          valueOrDefault<String>(
-                            TvIdResultsStruct.maybeFromMap(
-                                    tvDetailsSearchTVIDResponse.jsonBody)
-                                ?.seasons
-                                .length
-                                .toString(),
-                            'season number',
-                          ),
+                          TvIDResultsStruct.maybeFromMap(
+                                  tvDetailsSearchTVIDResponse.jsonBody)!
+                              .numberOfSeasons
+                              .toString(),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',

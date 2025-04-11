@@ -10,33 +10,6 @@ export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class SearchMoviesCall {
-  static Future<ApiCallResponse> call({
-    String? search = '',
-  }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Search Movies',
-      apiUrl:
-          'https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=1',
-      callType: ApiCallType.GET,
-      headers: {
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
-        'accept': 'application/json',
-      },
-      params: {
-        'search': search,
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: true,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
 class GetHotMoviesCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
@@ -147,7 +120,7 @@ class SearchMovieIDCall {
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
-      decodeUtf8: false,
+      decodeUtf8: true,
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,
@@ -157,7 +130,7 @@ class SearchMovieIDCall {
 
 class SearchTVIDCall {
   static Future<ApiCallResponse> call({
-    String? seriesId = 'severance',
+    int? seriesId,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Search TV ID',
@@ -171,7 +144,34 @@ class SearchTVIDCall {
       params: {},
       returnBody: true,
       encodeBodyUtf8: false,
-      decodeUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SearchMoviesCall {
+  static Future<ApiCallResponse> call({
+    String? search = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Search Movies',
+      apiUrl:
+          'https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=en-US&page=1',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
+        'accept': 'application/json',
+      },
+      params: {
+        'search': search,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,

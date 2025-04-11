@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -228,6 +229,12 @@ class _SignupWidgetState extends State<SignupWidget>
                                                 .signupEmailFieldnewTextController,
                                             focusNode: _model
                                                 .signupEmailFieldnewFocusNode,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              '_model.signupEmailFieldnewTextController',
+                                              Duration(milliseconds: 2000),
+                                              () => safeSetState(() {}),
+                                            ),
                                             autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
@@ -290,6 +297,23 @@ class _SignupWidgetState extends State<SignupWidget>
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
+                                              suffixIcon: _model
+                                                      .signupEmailFieldnewTextController!
+                                                      .text
+                                                      .isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () async {
+                                                        _model
+                                                            .signupEmailFieldnewTextController
+                                                            ?.clear();
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        size: 22,
+                                                      ),
+                                                    )
+                                                  : null,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -474,6 +498,8 @@ class _SignupWidgetState extends State<SignupWidget>
                                             focusNode: _model
                                                 .signupConfirmPasswordFieldnewFocusNode,
                                             autofocus: false,
+                                            textInputAction:
+                                                TextInputAction.done,
                                             obscureText: !_model
                                                 .signupConfirmPasswordFieldnewVisibility,
                                             decoration: InputDecoration(

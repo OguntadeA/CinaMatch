@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -167,6 +168,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 controller:
                                     _model.loginEmailfieldTextController,
                                 focusNode: _model.loginEmailfieldFocusNode,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.loginEmailfieldTextController',
+                                  Duration(milliseconds: 2000),
+                                  () => safeSetState(() {}),
+                                ),
                                 autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -215,6 +221,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
+                                  suffixIcon: _model
+                                          .loginEmailfieldTextController!
+                                          .text
+                                          .isNotEmpty
+                                      ? InkWell(
+                                          onTap: () async {
+                                            _model.loginEmailfieldTextController
+                                                ?.clear();
+                                            safeSetState(() {});
+                                          },
+                                          child: Icon(
+                                            Icons.clear,
+                                            size: 22,
+                                          ),
+                                        )
+                                      : null,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

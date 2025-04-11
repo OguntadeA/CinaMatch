@@ -754,7 +754,7 @@ class _RecommendationsWidgetState extends State<RecommendationsWidget> {
                     ),
                   ),
                 ),
-              ],
+              ].divide(SizedBox(height: 15.0)),
             ),
             Container(
               width: double.infinity,
@@ -817,7 +817,7 @@ class _RecommendationsWidgetState extends State<RecommendationsWidget> {
                       ),
                     ),
                   ),
-                ],
+                ].divide(SizedBox(width: 1.0)),
               ),
             ),
           ],

@@ -36,6 +36,7 @@ dependencies:
   cloud_firestore_web: 4.3.4
   collection: 1.19.0
   dropdown_button2: 2.3.9
+  easy_debounce: 2.0.1
   equatable: 2.0.5
   ff_commons:
     path: ./dependencies/ff_commons # 1.0.0+1

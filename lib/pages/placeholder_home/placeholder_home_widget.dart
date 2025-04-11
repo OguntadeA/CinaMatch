@@ -874,20 +874,41 @@ class _PlaceholderHomeWidgetState extends State<PlaceholderHomeWidget> {
                                                       onTap: () async {
                                                         logFirebaseEvent(
                                                             'PLACEHOLDER_HOME_Image_lseavtem_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Image_navigate_to');
+                                                        if (topmoviesItem
+                                                                .mediaType ==
+                                                            'movie') {
+                                                          logFirebaseEvent(
+                                                              'Image_navigate_to');
 
-                                                        context.pushNamed(
-                                                          MovieDetailsWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'id':
-                                                                serializeParam(
-                                                              topmoviesItem.id,
-                                                              ParamType.int,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
+                                                          context.pushNamed(
+                                                            MovieDetailsWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'id':
+                                                                  serializeParam(
+                                                                topmoviesItem
+                                                                    .id,
+                                                                ParamType.int,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        } else {
+                                                          logFirebaseEvent(
+                                                              'Image_navigate_to');
+
+                                                          context.pushNamed(
+                                                            TvDetailsWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'id':
+                                                                  serializeParam(
+                                                                topmoviesItem
+                                                                    .id,
+                                                                ParamType.int,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        }
                                                       },
                                                       child: ClipRRect(
                                                         borderRadius:

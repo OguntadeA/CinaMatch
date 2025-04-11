@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -55,7 +56,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xCD57636C),
+            backgroundColor: Color(0xCDDFD9D9),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -78,7 +79,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xCD57636C),
+            backgroundColor: Color(0xCDDFD9D9),
             drawer: Drawer(
               elevation: 16.0,
               child: Padding(
@@ -304,76 +305,125 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
             ),
             body: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 10.0, 0.0, 10.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'MOVIE_DETAILS_PAGE_Icon_fuhvlxfu_ON_TAP');
-                              logFirebaseEvent('Icon_drawer');
-                              scaffoldKey.currentState!.openDrawer();
-                            },
-                            child: Icon(
-                              Icons.menu,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              size: 35.0,
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Container(
+                    height: 90.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF480303),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 2.0,
+                          color: Color(0x33000000),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
+                          spreadRadius: 4.0,
+                        )
+                      ],
+                    ),
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 15.0, 0.0, 10.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'MOVIE_DETAILS_PAGE_Icon_fuhvlxfu_ON_TAP');
+                                  logFirebaseEvent('Icon_navigate_back');
+                                  context.safePop();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back_rounded,
+                                  color: Colors.white,
+                                  size: 35.0,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(1.0, -1.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 20.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'MOVIE_DETAILS_PAGE_Icon_3qzuept8_ON_TAP');
-                              logFirebaseEvent('Icon_navigate_to');
+                          Text(
+                            'Details',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Playfair Display',
+                                  color: Colors.white,
+                                  fontSize: 35.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 30.0, 20.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'MOVIE_DETAILS_PAGE_Icon_3qzuept8_ON_TAP');
+                                  logFirebaseEvent('Icon_navigate_to');
 
-                              context.pushNamed(SearchWidget.routeName);
-                            },
-                            child: Icon(
-                              Icons.search,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              size: 35.0,
+                                  context.pushNamed(SearchWidget.routeName);
+                                },
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                  size: 35.0,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            50.0, 0.0, 0.0, 10.0),
+                    Container(
+                      width: 200.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 4.0,
+                            color: Color(0x33000000),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
                             MovieIdResultsStruct.maybeFromMap(
@@ -381,27 +431,12 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                 ?.title,
                             'Movie Title',
                           ),
+                          textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Playfair Display',
-                                    color: Color(0xFF480303),
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(1.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            110.0, 0.0, 0.0, 10.0),
-                        child: Text(
-                          'Synopsis',
-                          style:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Playfair Display',
-                                    color: Color(0xFF480303),
+                                    color: Colors.black,
+                                    fontSize: 24.0,
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -416,10 +451,10 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 10.0, 0.0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(0.0),
+                          borderRadius: BorderRadius.circular(8.0),
                           child: Image.network(
                             functions.urlConcatinator(
                                 MovieIdResultsStruct.maybeFromMap(
@@ -427,7 +462,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                             .jsonBody)
                                     ?.posterPath)!,
                             width: 153.8,
-                            height: 216.8,
+                            height: 222.0,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -436,29 +471,105 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                     Expanded(
                       child: Align(
                         alignment: AlignmentDirectional(0.0, -1.0),
-                        child: Text(
-                          valueOrDefault<String>(
-                            MovieIdResultsStruct.maybeFromMap(
-                                    movieDetailsSearchMovieIDResponse.jsonBody)
-                                ?.overview,
-                            'Overview',
+                        child: Container(
+                          width: 170.0,
+                          height: 220.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 2.0,
+                                color: Color(0x33000000),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
+                                spreadRadius: 4.0,
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Playfair Display',
-                                    letterSpacing: 0.0,
-                                    fontStyle: FontStyle.italic,
-                                  ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  2.0, 2.0, 2.0, 2.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  MovieIdResultsStruct.maybeFromMap(
+                                          movieDetailsSearchMovieIDResponse
+                                              .jsonBody)
+                                      ?.overview,
+                                  'Overview',
+                                ).maybeHandleOverflow(
+                                  maxChars: 200,
+                                  replacement: '…',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: Colors.black,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
+                FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: 'Add to Watchlist +',
+                  options: FFButtonOptions(
+                    width: 300.0,
+                    height: 45.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF920D0D),
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Inter Tight',
+                      color: Colors.white,
+                      letterSpacing: 0.0,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black,
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 4.0,
+                        )
+                      ],
+                    ),
+                    elevation: 0.0,
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
                 Container(
                   width: 350.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2.0,
+                        color: Color(0x33000000),
+                        offset: Offset(
+                          0.0,
+                          2.0,
+                        ),
+                        spreadRadius: 4.0,
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
                     padding:
@@ -472,6 +583,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Color(0xFF050607),
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -486,6 +598,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Color(0xFF0D0F11),
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -493,52 +606,22 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          width: 126.49,
-                          height: 27.9,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              'Add to Watchlist',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Playfair Display',
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: Icon(
-                            Icons.add_circle_outlined,
-                            color: Color(0xFF480303),
-                            size: 35.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
                 Container(
                   width: 350.0,
                   height: 100.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2.0,
+                        color: Color(0x33000000),
+                        offset: Offset(
+                          0.0,
+                          2.0,
+                        ),
+                        spreadRadius: 4.0,
+                      )
+                    ],
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Column(
@@ -552,6 +635,8 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Colors.black,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -566,11 +651,12 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                     .toList() ??
                                 [];
 
-                            return ListView.builder(
+                            return ListView.separated(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               itemCount: genres.length,
+                              separatorBuilder: (_, __) => SizedBox(width: 5.0),
                               itemBuilder: (context, genresIndex) {
                                 final genresItem = genres[genresIndex];
                                 return Align(
@@ -582,8 +668,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                       width: 92.6,
                                       height: 45.5,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Colors.white,
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                         border: Border.all(
@@ -604,6 +689,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                                 .override(
                                                   fontFamily:
                                                       'Playfair Display',
+                                                  color: Color(0xFF121619),
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -624,7 +710,18 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   width: 350.0,
                   height: 75.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2.0,
+                        color: Color(0x33000000),
+                        offset: Offset(
+                          0.0,
+                          2.0,
+                        ),
+                        spreadRadius: 4.0,
+                      )
+                    ],
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Column(
@@ -638,6 +735,8 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Color(0xFF0C0E10),
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -655,6 +754,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Color(0xFF101417),
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -666,7 +766,18 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   width: 350.0,
                   height: 75.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 2.0,
+                        color: Color(0x33000000),
+                        offset: Offset(
+                          0.0,
+                          2.0,
+                        ),
+                        spreadRadius: 4.0,
+                      )
+                    ],
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Column(
@@ -680,6 +791,8 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
+                                    color: Color(0xFF111517),
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -691,25 +804,30 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                               0.0, 15.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    75.0, 0.0, 5.0, 0.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    MovieIdResultsStruct.maybeFromMap(
-                                            movieDetailsSearchMovieIDResponse
-                                                .jsonBody)
-                                        ?.runtime
-                                        .toString(),
-                                    'release date value',
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 5.0, 0.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      MovieIdResultsStruct.maybeFromMap(
+                                              movieDetailsSearchMovieIDResponse
+                                                  .jsonBody)
+                                          ?.runtime
+                                          .toString(),
+                                      'release date value',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Color(0xFF101315),
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
                                 ),
                               ),
                               Text(
@@ -718,6 +836,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
+                                      color: Color(0xFF0D1113),
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -728,7 +847,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                     ],
                   ),
                 ),
-              ],
+              ].divide(SizedBox(height: 15.0)),
             ),
           ),
         );

@@ -6,8 +6,8 @@ import '/backend/schema/util/firestore_util.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 
-class LastEpisodeToAirStruct extends FFFirebaseStruct {
-  LastEpisodeToAirStruct({
+class NextEpisodeToAirStruct extends FFFirebaseStruct {
+  NextEpisodeToAirStruct({
     int? id,
     String? name,
     String? overview,
@@ -145,8 +145,8 @@ class LastEpisodeToAirStruct extends FFFirebaseStruct {
 
   bool hasStillPath() => _stillPath != null;
 
-  static LastEpisodeToAirStruct fromMap(Map<String, dynamic> data) =>
-      LastEpisodeToAirStruct(
+  static NextEpisodeToAirStruct fromMap(Map<String, dynamic> data) =>
+      NextEpisodeToAirStruct(
         id: castToType<int>(data['id']),
         name: data['name'] as String?,
         overview: data['overview'] as String?,
@@ -162,8 +162,8 @@ class LastEpisodeToAirStruct extends FFFirebaseStruct {
         stillPath: data['still_path'] as String?,
       );
 
-  static LastEpisodeToAirStruct? maybeFromMap(dynamic data) => data is Map
-      ? LastEpisodeToAirStruct.fromMap(data.cast<String, dynamic>())
+  static NextEpisodeToAirStruct? maybeFromMap(dynamic data) => data is Map
+      ? NextEpisodeToAirStruct.fromMap(data.cast<String, dynamic>())
       : null;
 
   Map<String, dynamic> toMap() => {
@@ -238,9 +238,9 @@ class LastEpisodeToAirStruct extends FFFirebaseStruct {
         ),
       }.withoutNulls;
 
-  static LastEpisodeToAirStruct fromSerializableMap(
+  static NextEpisodeToAirStruct fromSerializableMap(
           Map<String, dynamic> data) =>
-      LastEpisodeToAirStruct(
+      NextEpisodeToAirStruct(
         id: deserializeParam(
           data['id'],
           ParamType.int,
@@ -309,11 +309,11 @@ class LastEpisodeToAirStruct extends FFFirebaseStruct {
       );
 
   @override
-  String toString() => 'LastEpisodeToAirStruct(${toMap()})';
+  String toString() => 'NextEpisodeToAirStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is LastEpisodeToAirStruct &&
+    return other is NextEpisodeToAirStruct &&
         id == other.id &&
         name == other.name &&
         overview == other.overview &&
@@ -347,7 +347,7 @@ class LastEpisodeToAirStruct extends FFFirebaseStruct {
       ]);
 }
 
-LastEpisodeToAirStruct createLastEpisodeToAirStruct({
+NextEpisodeToAirStruct createNextEpisodeToAirStruct({
   int? id,
   String? name,
   String? overview,
@@ -366,7 +366,7 @@ LastEpisodeToAirStruct createLastEpisodeToAirStruct({
   bool create = false,
   bool delete = false,
 }) =>
-    LastEpisodeToAirStruct(
+    NextEpisodeToAirStruct(
       id: id,
       name: name,
       overview: overview,
@@ -388,66 +388,66 @@ LastEpisodeToAirStruct createLastEpisodeToAirStruct({
       ),
     );
 
-LastEpisodeToAirStruct? updateLastEpisodeToAirStruct(
-  LastEpisodeToAirStruct? lastEpisodeToAir, {
+NextEpisodeToAirStruct? updateNextEpisodeToAirStruct(
+  NextEpisodeToAirStruct? nextEpisodeToAir, {
   bool clearUnsetFields = true,
   bool create = false,
 }) =>
-    lastEpisodeToAir
+    nextEpisodeToAir
       ?..firestoreUtilData = FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
       );
 
-void addLastEpisodeToAirStructData(
+void addNextEpisodeToAirStructData(
   Map<String, dynamic> firestoreData,
-  LastEpisodeToAirStruct? lastEpisodeToAir,
+  NextEpisodeToAirStruct? nextEpisodeToAir,
   String fieldName, [
   bool forFieldValue = false,
 ]) {
   firestoreData.remove(fieldName);
-  if (lastEpisodeToAir == null) {
+  if (nextEpisodeToAir == null) {
     return;
   }
-  if (lastEpisodeToAir.firestoreUtilData.delete) {
+  if (nextEpisodeToAir.firestoreUtilData.delete) {
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
   final clearFields =
-      !forFieldValue && lastEpisodeToAir.firestoreUtilData.clearUnsetFields;
+      !forFieldValue && nextEpisodeToAir.firestoreUtilData.clearUnsetFields;
   if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
-  final lastEpisodeToAirData =
-      getLastEpisodeToAirFirestoreData(lastEpisodeToAir, forFieldValue);
+  final nextEpisodeToAirData =
+      getNextEpisodeToAirFirestoreData(nextEpisodeToAir, forFieldValue);
   final nestedData =
-      lastEpisodeToAirData.map((k, v) => MapEntry('$fieldName.$k', v));
+      nextEpisodeToAirData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final mergeFields = lastEpisodeToAir.firestoreUtilData.create || clearFields;
+  final mergeFields = nextEpisodeToAir.firestoreUtilData.create || clearFields;
   firestoreData
       .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
-Map<String, dynamic> getLastEpisodeToAirFirestoreData(
-  LastEpisodeToAirStruct? lastEpisodeToAir, [
+Map<String, dynamic> getNextEpisodeToAirFirestoreData(
+  NextEpisodeToAirStruct? nextEpisodeToAir, [
   bool forFieldValue = false,
 ]) {
-  if (lastEpisodeToAir == null) {
+  if (nextEpisodeToAir == null) {
     return {};
   }
-  final firestoreData = mapToFirestore(lastEpisodeToAir.toMap());
+  final firestoreData = mapToFirestore(nextEpisodeToAir.toMap());
 
   // Add any Firestore field values
-  lastEpisodeToAir.firestoreUtilData.fieldValues
+  nextEpisodeToAir.firestoreUtilData.fieldValues
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
 
-List<Map<String, dynamic>> getLastEpisodeToAirListFirestoreData(
-  List<LastEpisodeToAirStruct>? lastEpisodeToAirs,
+List<Map<String, dynamic>> getNextEpisodeToAirListFirestoreData(
+  List<NextEpisodeToAirStruct>? nextEpisodeToAirs,
 ) =>
-    lastEpisodeToAirs
-        ?.map((e) => getLastEpisodeToAirFirestoreData(e, true))
+    nextEpisodeToAirs
+        ?.map((e) => getNextEpisodeToAirFirestoreData(e, true))
         .toList() ??
     [];

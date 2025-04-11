@@ -21,15 +21,6 @@ class SignupModel extends FlutterFlowModel<SignupWidget> {
   TextEditingController? signupEmailFieldnewTextController;
   String? Function(BuildContext, String?)?
       signupEmailFieldnewTextControllerValidator;
-  String? _signupEmailFieldnewTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Enter email here... is required';
-    }
-
-    return null;
-  }
-
   // State field(s) for signup-PasswordFieldnew widget.
   FocusNode? signupPasswordFieldnewFocusNode;
   TextEditingController? signupPasswordFieldnewTextController;
@@ -42,7 +33,7 @@ class SignupModel extends FlutterFlowModel<SignupWidget> {
       return 'Enter password here... is required';
     }
 
-    if (val.length < 8) {
+    if (val.length < 6) {
       return 'Passwords must be 8 characters';
     }
 
@@ -61,7 +52,7 @@ class SignupModel extends FlutterFlowModel<SignupWidget> {
       return 'Confirm password here... is required';
     }
 
-    if (val.length < 8) {
+    if (val.length < 6) {
       return 'Passwords must be 8 characters';
     }
 
@@ -70,8 +61,6 @@ class SignupModel extends FlutterFlowModel<SignupWidget> {
 
   @override
   void initState(BuildContext context) {
-    signupEmailFieldnewTextControllerValidator =
-        _signupEmailFieldnewTextControllerValidator;
     signupPasswordFieldnewVisibility = false;
     signupPasswordFieldnewTextControllerValidator =
         _signupPasswordFieldnewTextControllerValidator;

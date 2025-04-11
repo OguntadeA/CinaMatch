@@ -7,12 +7,12 @@ import '/backend/schema/util/firestore_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class TvIdResultsStruct extends FFFirebaseStruct {
-  TvIdResultsStruct({
+class TvIDResultsStruct extends FFFirebaseStruct {
+  TvIDResultsStruct({
     bool? adult,
     String? backdropPath,
-    List<String>? createdBy,
-    List<int>? episodeRunTime,
+    List<CreatedByStruct>? createdBy,
+    List<String>? episodeRunTime,
     String? firstAirDate,
     List<GenresStruct>? genres,
     String? homepage,
@@ -22,7 +22,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
     String? lastAirDate,
     LastEpisodeToAirStruct? lastEpisodeToAir,
     String? name,
-    String? nextEpisodeToAir,
+    NextEpisodeToAirStruct? nextEpisodeToAir,
     List<NetworksStruct>? networks,
     int? numberOfEpisodes,
     int? numberOfSeasons,
@@ -32,7 +32,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
     String? overview,
     double? popularity,
     String? posterPath,
-    List<String>? productionCompanies,
+    List<ProductionCompaniesStruct>? productionCompanies,
     List<ProductionCountriesStruct>? productionCountries,
     List<SeasonsStruct>? seasons,
     List<SpokenLanguagesStruct>? spokenLanguages,
@@ -91,22 +91,22 @@ class TvIdResultsStruct extends FFFirebaseStruct {
   bool hasBackdropPath() => _backdropPath != null;
 
   // "created_by" field.
-  List<String>? _createdBy;
-  List<String> get createdBy => _createdBy ?? const [];
-  set createdBy(List<String>? val) => _createdBy = val;
+  List<CreatedByStruct>? _createdBy;
+  List<CreatedByStruct> get createdBy => _createdBy ?? const [];
+  set createdBy(List<CreatedByStruct>? val) => _createdBy = val;
 
-  void updateCreatedBy(Function(List<String>) updateFn) {
+  void updateCreatedBy(Function(List<CreatedByStruct>) updateFn) {
     updateFn(_createdBy ??= []);
   }
 
   bool hasCreatedBy() => _createdBy != null;
 
   // "episode_run_time" field.
-  List<int>? _episodeRunTime;
-  List<int> get episodeRunTime => _episodeRunTime ?? const [];
-  set episodeRunTime(List<int>? val) => _episodeRunTime = val;
+  List<String>? _episodeRunTime;
+  List<String> get episodeRunTime => _episodeRunTime ?? const [];
+  set episodeRunTime(List<String>? val) => _episodeRunTime = val;
 
-  void updateEpisodeRunTime(Function(List<int>) updateFn) {
+  void updateEpisodeRunTime(Function(List<String>) updateFn) {
     updateFn(_episodeRunTime ??= []);
   }
 
@@ -191,9 +191,14 @@ class TvIdResultsStruct extends FFFirebaseStruct {
   bool hasName() => _name != null;
 
   // "next_episode_to_air" field.
-  String? _nextEpisodeToAir;
-  String get nextEpisodeToAir => _nextEpisodeToAir ?? '';
-  set nextEpisodeToAir(String? val) => _nextEpisodeToAir = val;
+  NextEpisodeToAirStruct? _nextEpisodeToAir;
+  NextEpisodeToAirStruct get nextEpisodeToAir =>
+      _nextEpisodeToAir ?? NextEpisodeToAirStruct();
+  set nextEpisodeToAir(NextEpisodeToAirStruct? val) => _nextEpisodeToAir = val;
+
+  void updateNextEpisodeToAir(Function(NextEpisodeToAirStruct) updateFn) {
+    updateFn(_nextEpisodeToAir ??= NextEpisodeToAirStruct());
+  }
 
   bool hasNextEpisodeToAir() => _nextEpisodeToAir != null;
 
@@ -277,11 +282,14 @@ class TvIdResultsStruct extends FFFirebaseStruct {
   bool hasPosterPath() => _posterPath != null;
 
   // "production_companies" field.
-  List<String>? _productionCompanies;
-  List<String> get productionCompanies => _productionCompanies ?? const [];
-  set productionCompanies(List<String>? val) => _productionCompanies = val;
+  List<ProductionCompaniesStruct>? _productionCompanies;
+  List<ProductionCompaniesStruct> get productionCompanies =>
+      _productionCompanies ?? const [];
+  set productionCompanies(List<ProductionCompaniesStruct>? val) =>
+      _productionCompanies = val;
 
-  void updateProductionCompanies(Function(List<String>) updateFn) {
+  void updateProductionCompanies(
+      Function(List<ProductionCompaniesStruct>) updateFn) {
     updateFn(_productionCompanies ??= []);
   }
 
@@ -365,11 +373,14 @@ class TvIdResultsStruct extends FFFirebaseStruct {
 
   bool hasVoteCount() => _voteCount != null;
 
-  static TvIdResultsStruct fromMap(Map<String, dynamic> data) =>
-      TvIdResultsStruct(
+  static TvIDResultsStruct fromMap(Map<String, dynamic> data) =>
+      TvIDResultsStruct(
         adult: data['adult'] as bool?,
         backdropPath: data['backdrop_path'] as String?,
-        createdBy: getDataList(data['created_by']),
+        createdBy: getStructList(
+          data['created_by'],
+          CreatedByStruct.fromMap,
+        ),
         episodeRunTime: getDataList(data['episode_run_time']),
         firstAirDate: data['first_air_date'] as String?,
         genres: getStructList(
@@ -385,7 +396,9 @@ class TvIdResultsStruct extends FFFirebaseStruct {
             ? data['last_episode_to_air']
             : LastEpisodeToAirStruct.maybeFromMap(data['last_episode_to_air']),
         name: data['name'] as String?,
-        nextEpisodeToAir: data['next_episode_to_air'] as String?,
+        nextEpisodeToAir: data['next_episode_to_air'] is NextEpisodeToAirStruct
+            ? data['next_episode_to_air']
+            : NextEpisodeToAirStruct.maybeFromMap(data['next_episode_to_air']),
         networks: getStructList(
           data['networks'],
           NetworksStruct.fromMap,
@@ -398,7 +411,10 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         overview: data['overview'] as String?,
         popularity: castToType<double>(data['popularity']),
         posterPath: data['poster_path'] as String?,
-        productionCompanies: getDataList(data['production_companies']),
+        productionCompanies: getStructList(
+          data['production_companies'],
+          ProductionCompaniesStruct.fromMap,
+        ),
         productionCountries: getStructList(
           data['production_countries'],
           ProductionCountriesStruct.fromMap,
@@ -418,14 +434,14 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         voteCount: castToType<int>(data['vote_count']),
       );
 
-  static TvIdResultsStruct? maybeFromMap(dynamic data) => data is Map
-      ? TvIdResultsStruct.fromMap(data.cast<String, dynamic>())
+  static TvIDResultsStruct? maybeFromMap(dynamic data) => data is Map
+      ? TvIDResultsStruct.fromMap(data.cast<String, dynamic>())
       : null;
 
   Map<String, dynamic> toMap() => {
         'adult': _adult,
         'backdrop_path': _backdropPath,
-        'created_by': _createdBy,
+        'created_by': _createdBy?.map((e) => e.toMap()).toList(),
         'episode_run_time': _episodeRunTime,
         'first_air_date': _firstAirDate,
         'genres': _genres?.map((e) => e.toMap()).toList(),
@@ -436,7 +452,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         'last_air_date': _lastAirDate,
         'last_episode_to_air': _lastEpisodeToAir?.toMap(),
         'name': _name,
-        'next_episode_to_air': _nextEpisodeToAir,
+        'next_episode_to_air': _nextEpisodeToAir?.toMap(),
         'networks': _networks?.map((e) => e.toMap()).toList(),
         'number_of_episodes': _numberOfEpisodes,
         'number_of_seasons': _numberOfSeasons,
@@ -446,7 +462,8 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         'overview': _overview,
         'popularity': _popularity,
         'poster_path': _posterPath,
-        'production_companies': _productionCompanies,
+        'production_companies':
+            _productionCompanies?.map((e) => e.toMap()).toList(),
         'production_countries':
             _productionCountries?.map((e) => e.toMap()).toList(),
         'seasons': _seasons?.map((e) => e.toMap()).toList(),
@@ -470,12 +487,12 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         ),
         'created_by': serializeParam(
           _createdBy,
-          ParamType.String,
+          ParamType.DataStruct,
           isList: true,
         ),
         'episode_run_time': serializeParam(
           _episodeRunTime,
-          ParamType.int,
+          ParamType.String,
           isList: true,
         ),
         'first_air_date': serializeParam(
@@ -518,7 +535,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         ),
         'next_episode_to_air': serializeParam(
           _nextEpisodeToAir,
-          ParamType.String,
+          ParamType.DataStruct,
         ),
         'networks': serializeParam(
           _networks,
@@ -560,7 +577,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         ),
         'production_companies': serializeParam(
           _productionCompanies,
-          ParamType.String,
+          ParamType.DataStruct,
           isList: true,
         ),
         'production_countries': serializeParam(
@@ -600,8 +617,8 @@ class TvIdResultsStruct extends FFFirebaseStruct {
         ),
       }.withoutNulls;
 
-  static TvIdResultsStruct fromSerializableMap(Map<String, dynamic> data) =>
-      TvIdResultsStruct(
+  static TvIDResultsStruct fromSerializableMap(Map<String, dynamic> data) =>
+      TvIDResultsStruct(
         adult: deserializeParam(
           data['adult'],
           ParamType.bool,
@@ -612,14 +629,15 @@ class TvIdResultsStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        createdBy: deserializeParam<String>(
+        createdBy: deserializeStructParam<CreatedByStruct>(
           data['created_by'],
-          ParamType.String,
+          ParamType.DataStruct,
           true,
+          structBuilder: CreatedByStruct.fromSerializableMap,
         ),
-        episodeRunTime: deserializeParam<int>(
+        episodeRunTime: deserializeParam<String>(
           data['episode_run_time'],
-          ParamType.int,
+          ParamType.String,
           true,
         ),
         firstAirDate: deserializeParam(
@@ -669,10 +687,11 @@ class TvIdResultsStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        nextEpisodeToAir: deserializeParam(
+        nextEpisodeToAir: deserializeStructParam(
           data['next_episode_to_air'],
-          ParamType.String,
+          ParamType.DataStruct,
           false,
+          structBuilder: NextEpisodeToAirStruct.fromSerializableMap,
         ),
         networks: deserializeStructParam<NetworksStruct>(
           data['networks'],
@@ -720,10 +739,11 @@ class TvIdResultsStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        productionCompanies: deserializeParam<String>(
+        productionCompanies: deserializeStructParam<ProductionCompaniesStruct>(
           data['production_companies'],
-          ParamType.String,
+          ParamType.DataStruct,
           true,
+          structBuilder: ProductionCompaniesStruct.fromSerializableMap,
         ),
         productionCountries: deserializeStructParam<ProductionCountriesStruct>(
           data['production_countries'],
@@ -771,12 +791,12 @@ class TvIdResultsStruct extends FFFirebaseStruct {
       );
 
   @override
-  String toString() => 'TvIdResultsStruct(${toMap()})';
+  String toString() => 'TvIDResultsStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
     const listEquality = ListEquality();
-    return other is TvIdResultsStruct &&
+    return other is TvIDResultsStruct &&
         adult == other.adult &&
         backdropPath == other.backdropPath &&
         listEquality.equals(createdBy, other.createdBy) &&
@@ -848,7 +868,7 @@ class TvIdResultsStruct extends FFFirebaseStruct {
       ]);
 }
 
-TvIdResultsStruct createTvIdResultsStruct({
+TvIDResultsStruct createTvIDResultsStruct({
   bool? adult,
   String? backdropPath,
   String? firstAirDate,
@@ -858,7 +878,7 @@ TvIdResultsStruct createTvIdResultsStruct({
   String? lastAirDate,
   LastEpisodeToAirStruct? lastEpisodeToAir,
   String? name,
-  String? nextEpisodeToAir,
+  NextEpisodeToAirStruct? nextEpisodeToAir,
   int? numberOfEpisodes,
   int? numberOfSeasons,
   String? originalLanguage,
@@ -876,7 +896,7 @@ TvIdResultsStruct createTvIdResultsStruct({
   bool create = false,
   bool delete = false,
 }) =>
-    TvIdResultsStruct(
+    TvIDResultsStruct(
       adult: adult,
       backdropPath: backdropPath,
       firstAirDate: firstAirDate,
@@ -887,7 +907,8 @@ TvIdResultsStruct createTvIdResultsStruct({
       lastEpisodeToAir: lastEpisodeToAir ??
           (clearUnsetFields ? LastEpisodeToAirStruct() : null),
       name: name,
-      nextEpisodeToAir: nextEpisodeToAir,
+      nextEpisodeToAir: nextEpisodeToAir ??
+          (clearUnsetFields ? NextEpisodeToAirStruct() : null),
       numberOfEpisodes: numberOfEpisodes,
       numberOfSeasons: numberOfSeasons,
       originalLanguage: originalLanguage,
@@ -908,72 +929,80 @@ TvIdResultsStruct createTvIdResultsStruct({
       ),
     );
 
-TvIdResultsStruct? updateTvIdResultsStruct(
-  TvIdResultsStruct? tvIdResults, {
+TvIDResultsStruct? updateTvIDResultsStruct(
+  TvIDResultsStruct? tvIDResults, {
   bool clearUnsetFields = true,
   bool create = false,
 }) =>
-    tvIdResults
+    tvIDResults
       ?..firestoreUtilData = FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
       );
 
-void addTvIdResultsStructData(
+void addTvIDResultsStructData(
   Map<String, dynamic> firestoreData,
-  TvIdResultsStruct? tvIdResults,
+  TvIDResultsStruct? tvIDResults,
   String fieldName, [
   bool forFieldValue = false,
 ]) {
   firestoreData.remove(fieldName);
-  if (tvIdResults == null) {
+  if (tvIDResults == null) {
     return;
   }
-  if (tvIdResults.firestoreUtilData.delete) {
+  if (tvIDResults.firestoreUtilData.delete) {
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
   final clearFields =
-      !forFieldValue && tvIdResults.firestoreUtilData.clearUnsetFields;
+      !forFieldValue && tvIDResults.firestoreUtilData.clearUnsetFields;
   if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
-  final tvIdResultsData =
-      getTvIdResultsFirestoreData(tvIdResults, forFieldValue);
+  final tvIDResultsData =
+      getTvIDResultsFirestoreData(tvIDResults, forFieldValue);
   final nestedData =
-      tvIdResultsData.map((k, v) => MapEntry('$fieldName.$k', v));
+      tvIDResultsData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  final mergeFields = tvIdResults.firestoreUtilData.create || clearFields;
+  final mergeFields = tvIDResults.firestoreUtilData.create || clearFields;
   firestoreData
       .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
-Map<String, dynamic> getTvIdResultsFirestoreData(
-  TvIdResultsStruct? tvIdResults, [
+Map<String, dynamic> getTvIDResultsFirestoreData(
+  TvIDResultsStruct? tvIDResults, [
   bool forFieldValue = false,
 ]) {
-  if (tvIdResults == null) {
+  if (tvIDResults == null) {
     return {};
   }
-  final firestoreData = mapToFirestore(tvIdResults.toMap());
+  final firestoreData = mapToFirestore(tvIDResults.toMap());
 
   // Handle nested data for "last_episode_to_air" field.
   addLastEpisodeToAirStructData(
     firestoreData,
-    tvIdResults.hasLastEpisodeToAir() ? tvIdResults.lastEpisodeToAir : null,
+    tvIDResults.hasLastEpisodeToAir() ? tvIDResults.lastEpisodeToAir : null,
     'last_episode_to_air',
     forFieldValue,
   );
 
+  // Handle nested data for "next_episode_to_air" field.
+  addNextEpisodeToAirStructData(
+    firestoreData,
+    tvIDResults.hasNextEpisodeToAir() ? tvIDResults.nextEpisodeToAir : null,
+    'next_episode_to_air',
+    forFieldValue,
+  );
+
   // Add any Firestore field values
-  tvIdResults.firestoreUtilData.fieldValues
+  tvIDResults.firestoreUtilData.fieldValues
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
 
-List<Map<String, dynamic>> getTvIdResultsListFirestoreData(
-  List<TvIdResultsStruct>? tvIdResultss,
+List<Map<String, dynamic>> getTvIDResultsListFirestoreData(
+  List<TvIDResultsStruct>? tvIDResultss,
 ) =>
-    tvIdResultss?.map((e) => getTvIdResultsFirestoreData(e, true)).toList() ??
+    tvIDResultss?.map((e) => getTvIDResultsFirestoreData(e, true)).toList() ??
     [];
