@@ -70,7 +70,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: Colors.white,
             boxShadow: [
               BoxShadow(
                 blurRadius: 3.0,
@@ -98,6 +98,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
                                 fontFamily: 'Inter Tight',
+                                color: Color(0xFF15191C),
                                 letterSpacing: 0.0,
                               ),
                     ),
@@ -105,11 +106,10 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       buttonSize: 40.0,
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
+                      fillColor: Colors.white,
                       icon: Icon(
                         Icons.close_rounded,
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: Color(0xFF0D1012),
                         size: 24.0,
                       ),
                       onPressed: () async {
@@ -151,6 +151,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                         'You have no watchlists, create one on the homepage',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
+                              color: Color(0xFF14181B),
                               letterSpacing: 0.0,
                             ),
                       );
@@ -160,7 +161,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                   width: double.infinity,
                   height: 100.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Colors.white,
                   ),
                   child: StreamBuilder<List<WatchlistRecord>>(
                     stream: queryWatchlistRecord(
@@ -197,8 +198,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                             width: double.infinity,
                             height: 50.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              color: Colors.white,
                             ),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -238,8 +238,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                                     width: 324.64,
                                     height: 100.0,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: Colors.white,
                                       borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
                                         color: Color(0xFFC2BCBC),
@@ -253,6 +252,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
+                                              color: Color(0xFF121518),
                                               letterSpacing: 0.0,
                                             ),
                                       ),

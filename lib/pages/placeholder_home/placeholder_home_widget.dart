@@ -463,6 +463,7 @@ class _PlaceholderHomeWidgetState extends State<PlaceholderHomeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 5.0),
                           child: Text(
+                            key: ValueKey('Text_f89u'),
                             'Homepage',
                             style: FlutterFlowTheme.of(context)
                                 .displayMedium

@@ -86,7 +86,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xF5BDBABA),
+            backgroundColor: Color(0xF5C2C2C2),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -109,7 +109,7 @@ class _SearchWidgetState extends State<SearchWidget> {
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xF5BDBABA),
+            backgroundColor: Color(0xF5C2C2C2),
             floatingActionButton: Align(
               alignment: AlignmentDirectional(-9.0, 0.0),
               child: FloatingActionButton(
@@ -849,29 +849,33 @@ class _SearchWidgetState extends State<SearchWidget> {
                 ),
                 Align(
                   alignment: AlignmentDirectional(-0.91, -0.93),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      logFirebaseEvent('SEARCH_PAGE_Icon_z1y5st10_ON_TAP');
-                      logFirebaseEvent('Icon_navigate_back');
-                      context.safePop();
-                      logFirebaseEvent('Icon_google_analytics_event');
-                      logFirebaseEvent(
-                        'endtime',
-                        parameters: {
-                          'search_end': getCurrentTimestamp
-                              .millisecondsSinceEpoch
-                              .toString(),
-                        },
-                      );
-                    },
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                      size: 40.0,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent('SEARCH_PAGE_Icon_z1y5st10_ON_TAP');
+                        logFirebaseEvent('Icon_navigate_back');
+                        context.safePop();
+                        logFirebaseEvent('Icon_google_analytics_event');
+                        logFirebaseEvent(
+                          'endtime',
+                          parameters: {
+                            'search_end': getCurrentTimestamp
+                                .millisecondsSinceEpoch
+                                .toString(),
+                          },
+                        );
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                        size: 40.0,
+                      ),
                     ),
                   ),
                 ),

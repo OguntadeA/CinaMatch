@@ -417,6 +417,17 @@ class _WatchlistWidgetState extends State<WatchlistWidget> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Color(0xFF480303),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 2.0,
+                            color: Color(0x33000000),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
+                            spreadRadius: 4.0,
+                          )
+                        ],
                       ),
                       child: Stack(
                         children: [
@@ -743,15 +754,13 @@ class _WatchlistWidgetState extends State<WatchlistWidget> {
                                             },
                                             child: Icon(
                                               Icons.highlight_off_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
+                                              color: Colors.white,
                                               size: 24.0,
                                             ),
                                           ),
                                           Icon(
                                             Icons.chevron_right_rounded,
-                                            color: Color(0xFFD27D39),
+                                            color: Colors.white,
                                             size: 24.0,
                                           ),
                                         ],

@@ -163,6 +163,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             child: Container(
                               width: 310.0,
                               child: TextFormField(
+                                key: ValueKey('login-emailfield_wmxo'),
                                 controller:
                                     _model.loginEmailfieldTextController,
                                 focusNode: _model.loginEmailfieldFocusNode,
@@ -257,6 +258,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             child: Container(
                               width: 310.0,
                               child: TextFormField(
+                                key: ValueKey('login-passwordfield_s8k1'),
                                 controller:
                                     _model.loginPasswordfieldTextController,
                                 focusNode: _model.loginPasswordfieldFocusNode,
@@ -344,6 +346,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
                           child: FFButtonWidget(
+                            key: ValueKey('Button_9hm5'),
                             onPressed: () async {
                               logFirebaseEvent('LOGIN_PAGE_LOGIN_BTN_ON_TAP');
                               await authManager.refreshUser();
