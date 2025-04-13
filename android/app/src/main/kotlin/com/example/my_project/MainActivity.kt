@@ -1,4 +1,4 @@
-package com.mycompany.cinamatch
+package com.uricsc305.cinamatch
 
 import io.flutter.embedding.android.FlutterActivity
 

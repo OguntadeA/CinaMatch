@@ -1,5 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/add_to_watchlist_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -403,7 +405,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 200.0,
+                      width: 353.3,
                       height: 50.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -493,7 +495,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  2.0, 2.0, 2.0, 2.0),
+                                  4.0, 2.0, 4.0, 2.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   MovieIdResultsStruct.maybeFromMap(
@@ -502,7 +504,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                       ?.overview,
                                   'Overview',
                                 ).maybeHandleOverflow(
-                                  maxChars: 200,
+                                  maxChars: 300,
                                   replacement: '…',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -510,7 +512,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                                     .override(
                                       fontFamily: 'Inter',
                                       color: Colors.black,
-                                      fontSize: 14.0,
+                                      fontSize: 12.0,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -522,8 +524,47 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
                   ],
                 ),
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    logFirebaseEvent(
+                        'MOVIE_DETAILS_ADD_TO_WATCHLIST__BTN_ON_T');
+                    logFirebaseEvent('Button_update_page_state');
+                    _model.updateMovieStruct(
+                      (e) => e
+                        ..title = MovieIdResultsStruct.maybeFromMap(
+                                movieDetailsSearchMovieIDResponse.jsonBody)
+                            ?.title
+                        ..description = MovieIdResultsStruct.maybeFromMap(
+                                movieDetailsSearchMovieIDResponse.jsonBody)
+                            ?.overview
+                        ..imagePath = functions.urlConcatinator(
+                            MovieIdResultsStruct.maybeFromMap(
+                                    movieDetailsSearchMovieIDResponse.jsonBody)
+                                ?.posterPath)
+                        ..id = widget.id
+                        ..mediaType = 'movie',
+                    );
+                    safeSetState(() {});
+                    logFirebaseEvent('Button_bottom_sheet');
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      context: context,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: AddToWatchlistWidget(
+                              movie: _model.movie!,
+                            ),
+                          ),
+                        );
+                      },
+                    ).then((value) => safeSetState(() {}));
                   },
                   text: 'Add to Watchlist +',
                   options: FFButtonOptions(

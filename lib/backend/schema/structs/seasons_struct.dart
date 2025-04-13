@@ -15,7 +15,7 @@ class SeasonsStruct extends FFFirebaseStruct {
     String? overview,
     String? posterPath,
     int? seasonNumber,
-    double? voteAverage,
+    int? voteAverage,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _airDate = airDate,
         _episodeCount = episodeCount,
@@ -85,12 +85,11 @@ class SeasonsStruct extends FFFirebaseStruct {
   bool hasSeasonNumber() => _seasonNumber != null;
 
   // "vote_average" field.
-  double? _voteAverage;
-  double get voteAverage => _voteAverage ?? 0.0;
-  set voteAverage(double? val) => _voteAverage = val;
+  int? _voteAverage;
+  int get voteAverage => _voteAverage ?? 0;
+  set voteAverage(int? val) => _voteAverage = val;
 
-  void incrementVoteAverage(double amount) =>
-      voteAverage = voteAverage + amount;
+  void incrementVoteAverage(int amount) => voteAverage = voteAverage + amount;
 
   bool hasVoteAverage() => _voteAverage != null;
 
@@ -102,7 +101,7 @@ class SeasonsStruct extends FFFirebaseStruct {
         overview: data['overview'] as String?,
         posterPath: data['poster_path'] as String?,
         seasonNumber: castToType<int>(data['season_number']),
-        voteAverage: castToType<double>(data['vote_average']),
+        voteAverage: castToType<int>(data['vote_average']),
       );
 
   static SeasonsStruct? maybeFromMap(dynamic data) =>
@@ -151,7 +150,7 @@ class SeasonsStruct extends FFFirebaseStruct {
         ),
         'vote_average': serializeParam(
           _voteAverage,
-          ParamType.double,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -194,7 +193,7 @@ class SeasonsStruct extends FFFirebaseStruct {
         ),
         voteAverage: deserializeParam(
           data['vote_average'],
-          ParamType.double,
+          ParamType.int,
           false,
         ),
       );
@@ -236,7 +235,7 @@ SeasonsStruct createSeasonsStruct({
   String? overview,
   String? posterPath,
   int? seasonNumber,
-  double? voteAverage,
+  int? voteAverage,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,

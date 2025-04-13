@@ -616,17 +616,31 @@ class _WatchlistWidgetState extends State<WatchlistWidget> {
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'WATCHLIST_PAGE_Container_p3kmamc3_ON_TAP');
-                                    logFirebaseEvent('Container_navigate_to');
+                                    if (movieListViewItem.mediaType == 'tv') {
+                                      logFirebaseEvent('Container_navigate_to');
 
-                                    context.pushNamed(
-                                      MovieDetailsWidget.routeName,
-                                      queryParameters: {
-                                        'id': serializeParam(
-                                          movieListViewItem.id,
-                                          ParamType.int,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                      context.pushNamed(
+                                        TvDetailsWidget.routeName,
+                                        queryParameters: {
+                                          'id': serializeParam(
+                                            movieListViewItem.id,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      logFirebaseEvent('Container_navigate_to');
+
+                                      context.pushNamed(
+                                        MovieDetailsWidget.routeName,
+                                        queryParameters: {
+                                          'id': serializeParam(
+                                            movieListViewItem.id,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    }
                                   },
                                   child: Container(
                                     width: 100.0,
@@ -658,7 +672,7 @@ class _WatchlistWidgetState extends State<WatchlistWidget> {
                                             width: 60.0,
                                             height: 100.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFD27D39),
+                                              color: Colors.white,
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(0.0),
@@ -669,9 +683,7 @@ class _WatchlistWidgetState extends State<WatchlistWidget> {
                                               ),
                                               shape: BoxShape.rectangle,
                                               border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
+                                                color: Colors.white,
                                                 width: 2.0,
                                               ),
                                             ),

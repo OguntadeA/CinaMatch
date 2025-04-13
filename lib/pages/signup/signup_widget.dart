@@ -297,6 +297,7 @@ class _SignupWidgetState extends State<SignupWidget>
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
+                                              hoverColor: Color(0xFFDBD7D7),
                                               suffixIcon: _model
                                                       .signupEmailFieldnewTextController!
                                                       .text
@@ -324,9 +325,7 @@ class _SignupWidgetState extends State<SignupWidget>
                                                 ),
                                             keyboardType:
                                                 TextInputType.emailAddress,
-                                            cursorColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryText,
+                                            cursorColor: Color(0xFF111417),
                                             validator: _model
                                                 .signupEmailFieldnewTextControllerValidator
                                                 .asValidator(context),
@@ -430,6 +429,7 @@ class _SignupWidgetState extends State<SignupWidget>
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
+                                              hoverColor: Color(0xFFDBD7D7),
                                               suffixIcon: InkWell(
                                                 onTap: () => safeSetState(
                                                   () => _model
@@ -562,6 +562,7 @@ class _SignupWidgetState extends State<SignupWidget>
                                               ),
                                               filled: true,
                                               fillColor: Colors.white,
+                                              hoverColor: Color(0xFFDBD7D7),
                                               suffixIcon: InkWell(
                                                 onTap: () => safeSetState(
                                                   () => _model

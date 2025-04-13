@@ -662,179 +662,221 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 173.3,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(18.0),
-                                        border: Border.all(
-                                          color: Color(0xFF868383),
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              valueOrDefault<String>(
-                                                functions.urlConcatinator(
-                                                    itemsItem.backdropPath),
-                                                'https://picsum.photos/seed/374/600',
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SEARCH_PAGE_Container_plxwinjf_ON_TAP');
+                                        if (itemsItem.mediaType == 'tv') {
+                                          logFirebaseEvent(
+                                              'Container_navigate_to');
+
+                                          context.pushNamed(
+                                            TvDetailsWidget.routeName,
+                                            queryParameters: {
+                                              'id': serializeParam(
+                                                itemsItem.id,
+                                                ParamType.int,
                                               ),
-                                              width: 125.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                              alignment: Alignment(0.0, 0.0),
-                                              errorBuilder: (context, error,
-                                                      stackTrace) =>
-                                                  Image.asset(
-                                                'assets/images/error_image.jpg',
+                                            }.withoutNulls,
+                                          );
+                                        } else {
+                                          logFirebaseEvent(
+                                              'Container_navigate_to');
+
+                                          context.pushNamed(
+                                            MovieDetailsWidget.routeName,
+                                            queryParameters: {
+                                              'id': serializeParam(
+                                                itemsItem.id,
+                                                ParamType.int,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        }
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 173.3,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(18.0),
+                                          border: Border.all(
+                                            color: Color(0xFF868383),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                valueOrDefault<String>(
+                                                  functions.urlConcatinator(
+                                                      itemsItem.backdropPath),
+                                                  'https://picsum.photos/seed/374/600',
+                                                ),
                                                 width: 125.0,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
                                                 alignment: Alignment(0.0, 0.0),
+                                                errorBuilder: (context, error,
+                                                        stackTrace) =>
+                                                    Image.asset(
+                                                  'assets/images/error_image.jpg',
+                                                  width: 125.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.cover,
+                                                  alignment:
+                                                      Alignment(0.0, 0.0),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Container(
-                                            width: 144.67,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Text(
-                                                    itemsItem.mediaType ==
-                                                            'movie'
-                                                        ? itemsItem.title
-                                                        : itemsItem.name
-                                                            .maybeHandleOverflow(
-                                                            maxChars: 30,
-                                                            replacement: '…',
+                                            Container(
+                                              width: 144.67,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      itemsItem.mediaType ==
+                                                              'movie'
+                                                          ? itemsItem.title
+                                                          : itemsItem.name
+                                                              .maybeHandleOverflow(
+                                                              maxChars: 30,
+                                                              replacement: '…',
+                                                            ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Playfair Display',
+                                                            color: Color(
+                                                                0xFF0D1012),
+                                                            letterSpacing: 0.0,
                                                           ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          color:
-                                                              Color(0xFF0D1012),
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    ),
                                                   ),
-                                                ),
-                                                Expanded(
-                                                  child: Text(
-                                                    valueOrDefault<String>(
+                                                  Expanded(
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        itemsItem.overview,
+                                                        'Movie Description',
+                                                      ).maybeHandleOverflow(
+                                                        maxChars: 100,
+                                                        replacement: '…',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Playfair Display',
+                                                            color: Color(
+                                                                0xFF121619),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 10.0)),
+                                              ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'SEARCH_PAGE_ADD_BTN_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Button_google_analytics_event');
+                                                logFirebaseEvent(
+                                                    'watchlistItemAdd');
+                                                logFirebaseEvent(
+                                                    'Button_update_page_state');
+                                                _model.movie =
+                                                    MovieInWatchlistStruct(
+                                                  title: itemsItem.mediaType ==
+                                                          'tv'
+                                                      ? itemsItem.name
+                                                      : itemsItem.title,
+                                                  description:
                                                       itemsItem.overview,
-                                                      'Movie Description',
-                                                    ).maybeHandleOverflow(
-                                                      maxChars: 100,
-                                                      replacement: '…',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodySmall
+                                                  imagePath:
+                                                      functions.urlConcatinator(
+                                                          itemsItem.posterPath),
+                                                  id: itemsItem.id,
+                                                );
+                                                safeSetState(() {});
+                                                logFirebaseEvent(
+                                                    'Button_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            AddToWatchlistWidget(
+                                                          movie: _model.movie!,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              text: 'Add',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFF480303),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
                                                         .override(
                                                           fontFamily:
                                                               'Playfair Display',
-                                                          color:
-                                                              Color(0xFF121619),
+                                                          color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(height: 10.0)),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
                                             ),
-                                          ),
-                                          FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'SEARCH_PAGE_ADD_BTN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Button_google_analytics_event');
-                                              logFirebaseEvent(
-                                                  'watchlistItemAdd');
-                                              logFirebaseEvent(
-                                                  'Button_update_page_state');
-                                              _model.movie =
-                                                  MovieInWatchlistStruct(
-                                                title:
-                                                    itemsItem.mediaType == 'tv'
-                                                        ? itemsItem.name
-                                                        : itemsItem.title,
-                                                description: itemsItem.overview,
-                                                imagePath:
-                                                    functions.urlConcatinator(
-                                                        itemsItem.posterPath),
-                                                id: itemsItem.id,
-                                              );
-                                              safeSetState(() {});
-                                              logFirebaseEvent(
-                                                  'Button_bottom_sheet');
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () {
-                                                      FocusScope.of(context)
-                                                          .unfocus();
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    },
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          AddToWatchlistWidget(
-                                                        movie: _model.movie!,
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
-                                            text: 'Add',
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF480303),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Playfair Display',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 5.0)),
+                                          ].divide(SizedBox(width: 5.0)),
+                                        ),
                                       ),
                                     ),
                                   ),

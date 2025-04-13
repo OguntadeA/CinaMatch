@@ -221,6 +221,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
+                                  hoverColor: Color(0xFFDBD7D7),
                                   suffixIcon: _model
                                           .loginEmailfieldTextController!
                                           .text
@@ -246,8 +247,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 keyboardType: TextInputType.emailAddress,
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                cursorColor: Color(0xFF111518),
                                 validator: _model
                                     .loginEmailfieldTextControllerValidator
                                     .asValidator(context),
@@ -333,6 +333,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   filled: true,
                                   fillColor: Colors.white,
+                                  hoverColor: Color(0xFFDBD7D7),
                                   suffixIcon: InkWell(
                                     onTap: () => safeSetState(
                                       () => _model
@@ -355,8 +356,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       color: Colors.black,
                                       letterSpacing: 0.0,
                                     ),
-                                cursorColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                cursorColor: Color(0xFF0C0E10),
                                 validator: _model
                                     .loginPasswordfieldTextControllerValidator
                                     .asValidator(context),
@@ -388,27 +388,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               _navigate = () => context.goNamedAuth(
                                   PlaceholderHomeWidget.routeName,
                                   context.mounted);
-                              if (currentUserEmailVerified == true) {
-                              } else {
-                                logFirebaseEvent('Button_show_snack_bar');
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Error, Please try again with valid information',
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Playfair Display',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor: Color(0xFFD23939),
-                                  ),
-                                );
-                              }
+                              if (currentUserEmailVerified == true) {}
 
                               _navigate();
                             },

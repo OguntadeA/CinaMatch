@@ -154,8 +154,7 @@ class _DeleteWatchlistWidgetState extends State<DeleteWatchlistWidget> {
                               ),
                             ),
                             duration: Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
+                            backgroundColor: Color(0xFF660202),
                           ),
                         );
                       },

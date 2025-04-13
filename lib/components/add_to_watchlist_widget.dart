@@ -106,10 +106,10 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       buttonSize: 40.0,
-                      fillColor: Colors.white,
+                      fillColor: Color(0xFF940303),
                       icon: Icon(
                         Icons.close_rounded,
-                        color: Color(0xFF0D1012),
+                        color: Colors.white,
                         size: 24.0,
                       ),
                       onPressed: () async {
@@ -229,6 +229,19 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                                     },
                                   ),
                                 });
+                                logFirebaseEvent('Row_show_snack_bar');
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Added to Watchlist ',
+                                      style: TextStyle(
+                                        color: Color(0xFFE2E2E2),
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor: Color(0xFF660202),
+                                  ),
+                                );
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,

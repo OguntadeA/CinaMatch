@@ -11,13 +11,13 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
     int? id,
     String? name,
     String? overview,
-    double? voteAverage,
+    int? voteAverage,
     int? voteCount,
     String? airDate,
     int? episodeNumber,
     String? episodeType,
     String? productionCode,
-    int? runtime,
+    String? runtime,
     int? seasonNumber,
     int? showId,
     String? stillPath,
@@ -61,12 +61,11 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
   bool hasOverview() => _overview != null;
 
   // "vote_average" field.
-  double? _voteAverage;
-  double get voteAverage => _voteAverage ?? 0.0;
-  set voteAverage(double? val) => _voteAverage = val;
+  int? _voteAverage;
+  int get voteAverage => _voteAverage ?? 0;
+  set voteAverage(int? val) => _voteAverage = val;
 
-  void incrementVoteAverage(double amount) =>
-      voteAverage = voteAverage + amount;
+  void incrementVoteAverage(int amount) => voteAverage = voteAverage + amount;
 
   bool hasVoteAverage() => _voteAverage != null;
 
@@ -111,11 +110,9 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
   bool hasProductionCode() => _productionCode != null;
 
   // "runtime" field.
-  int? _runtime;
-  int get runtime => _runtime ?? 0;
-  set runtime(int? val) => _runtime = val;
-
-  void incrementRuntime(int amount) => runtime = runtime + amount;
+  String? _runtime;
+  String get runtime => _runtime ?? '';
+  set runtime(String? val) => _runtime = val;
 
   bool hasRuntime() => _runtime != null;
 
@@ -150,13 +147,13 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
         id: castToType<int>(data['id']),
         name: data['name'] as String?,
         overview: data['overview'] as String?,
-        voteAverage: castToType<double>(data['vote_average']),
+        voteAverage: castToType<int>(data['vote_average']),
         voteCount: castToType<int>(data['vote_count']),
         airDate: data['air_date'] as String?,
         episodeNumber: castToType<int>(data['episode_number']),
         episodeType: data['episode_type'] as String?,
         productionCode: data['production_code'] as String?,
-        runtime: castToType<int>(data['runtime']),
+        runtime: data['runtime'] as String?,
         seasonNumber: castToType<int>(data['season_number']),
         showId: castToType<int>(data['show_id']),
         stillPath: data['still_path'] as String?,
@@ -198,7 +195,7 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
         ),
         'vote_average': serializeParam(
           _voteAverage,
-          ParamType.double,
+          ParamType.int,
         ),
         'vote_count': serializeParam(
           _voteCount,
@@ -222,7 +219,7 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
         ),
         'runtime': serializeParam(
           _runtime,
-          ParamType.int,
+          ParamType.String,
         ),
         'season_number': serializeParam(
           _seasonNumber,
@@ -258,7 +255,7 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
         ),
         voteAverage: deserializeParam(
           data['vote_average'],
-          ParamType.double,
+          ParamType.int,
           false,
         ),
         voteCount: deserializeParam(
@@ -288,7 +285,7 @@ class NextEpisodeToAirStruct extends FFFirebaseStruct {
         ),
         runtime: deserializeParam(
           data['runtime'],
-          ParamType.int,
+          ParamType.String,
           false,
         ),
         seasonNumber: deserializeParam(
@@ -351,13 +348,13 @@ NextEpisodeToAirStruct createNextEpisodeToAirStruct({
   int? id,
   String? name,
   String? overview,
-  double? voteAverage,
+  int? voteAverage,
   int? voteCount,
   String? airDate,
   int? episodeNumber,
   String? episodeType,
   String? productionCode,
-  int? runtime,
+  String? runtime,
   int? seasonNumber,
   int? showId,
   String? stillPath,

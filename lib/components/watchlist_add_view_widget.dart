@@ -94,10 +94,10 @@ class _WatchlistAddViewWidgetState extends State<WatchlistAddViewWidget> {
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 40.0,
-                      fillColor: Color(0xFFF1F4F8),
+                      fillColor: Color(0xFF940303),
                       icon: Icon(
                         Icons.close_rounded,
-                        color: Color(0xFF111417),
+                        color: Colors.white,
                         size: 20.0,
                       ),
                       onPressed: () async {
@@ -166,12 +166,15 @@ class _WatchlistAddViewWidgetState extends State<WatchlistAddViewWidget> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
+                        hoverColor: Color(0xFFDBD7D7),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
+                            color: Color(0xFF14181B),
                             letterSpacing: 0.0,
                           ),
                       minLines: 1,
+                      cursorColor: Colors.black,
                       validator:
                           _model.textController1Validator.asValidator(context),
                     ),
@@ -233,6 +236,7 @@ class _WatchlistAddViewWidgetState extends State<WatchlistAddViewWidget> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
+                        hoverColor: Color(0xFFDBD7D7),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
@@ -241,6 +245,7 @@ class _WatchlistAddViewWidgetState extends State<WatchlistAddViewWidget> {
                           ),
                       maxLines: 5,
                       minLines: 3,
+                      cursorColor: Color(0xFF0B0B0B),
                       validator:
                           _model.textController2Validator.asValidator(context),
                     ),

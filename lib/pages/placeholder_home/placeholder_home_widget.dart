@@ -672,7 +672,7 @@ class _PlaceholderHomeWidgetState extends State<PlaceholderHomeWidget> {
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.0, -1.0),
+                                                                  0.0, 0.0),
                                                           child: Builder(
                                                             builder: (context) {
                                                               final movies =
@@ -717,9 +717,9 @@ class _PlaceholderHomeWidgetState extends State<PlaceholderHomeWidget> {
                                                                       moviesItem
                                                                           .imagePath,
                                                                       width:
-                                                                          50.0,
+                                                                          75.0,
                                                                       height:
-                                                                          50.0,
+                                                                          75.0,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),

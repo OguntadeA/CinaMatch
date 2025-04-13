@@ -12,7 +12,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
     bool? adult,
     String? backdropPath,
     List<CreatedByStruct>? createdBy,
-    List<String>? episodeRunTime,
+    List<int>? episodeRunTime,
     String? firstAirDate,
     List<GenresStruct>? genres,
     String? homepage,
@@ -20,9 +20,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
     bool? inProduction,
     List<String>? languages,
     String? lastAirDate,
-    LastEpisodeToAirStruct? lastEpisodeToAir,
     String? name,
-    NextEpisodeToAirStruct? nextEpisodeToAir,
     List<NetworksStruct>? networks,
     int? numberOfEpisodes,
     int? numberOfSeasons,
@@ -34,7 +32,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
     String? posterPath,
     List<ProductionCompaniesStruct>? productionCompanies,
     List<ProductionCountriesStruct>? productionCountries,
-    List<SeasonsStruct>? seasons,
     List<SpokenLanguagesStruct>? spokenLanguages,
     String? status,
     String? tagline,
@@ -53,9 +50,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         _inProduction = inProduction,
         _languages = languages,
         _lastAirDate = lastAirDate,
-        _lastEpisodeToAir = lastEpisodeToAir,
         _name = name,
-        _nextEpisodeToAir = nextEpisodeToAir,
         _networks = networks,
         _numberOfEpisodes = numberOfEpisodes,
         _numberOfSeasons = numberOfSeasons,
@@ -67,7 +62,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         _posterPath = posterPath,
         _productionCompanies = productionCompanies,
         _productionCountries = productionCountries,
-        _seasons = seasons,
         _spokenLanguages = spokenLanguages,
         _status = status,
         _tagline = tagline,
@@ -102,11 +96,11 @@ class TvIDResultsStruct extends FFFirebaseStruct {
   bool hasCreatedBy() => _createdBy != null;
 
   // "episode_run_time" field.
-  List<String>? _episodeRunTime;
-  List<String> get episodeRunTime => _episodeRunTime ?? const [];
-  set episodeRunTime(List<String>? val) => _episodeRunTime = val;
+  List<int>? _episodeRunTime;
+  List<int> get episodeRunTime => _episodeRunTime ?? const [];
+  set episodeRunTime(List<int>? val) => _episodeRunTime = val;
 
-  void updateEpisodeRunTime(Function(List<String>) updateFn) {
+  void updateEpisodeRunTime(Function(List<int>) updateFn) {
     updateFn(_episodeRunTime ??= []);
   }
 
@@ -171,36 +165,12 @@ class TvIDResultsStruct extends FFFirebaseStruct {
 
   bool hasLastAirDate() => _lastAirDate != null;
 
-  // "last_episode_to_air" field.
-  LastEpisodeToAirStruct? _lastEpisodeToAir;
-  LastEpisodeToAirStruct get lastEpisodeToAir =>
-      _lastEpisodeToAir ?? LastEpisodeToAirStruct();
-  set lastEpisodeToAir(LastEpisodeToAirStruct? val) => _lastEpisodeToAir = val;
-
-  void updateLastEpisodeToAir(Function(LastEpisodeToAirStruct) updateFn) {
-    updateFn(_lastEpisodeToAir ??= LastEpisodeToAirStruct());
-  }
-
-  bool hasLastEpisodeToAir() => _lastEpisodeToAir != null;
-
   // "name" field.
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
 
   bool hasName() => _name != null;
-
-  // "next_episode_to_air" field.
-  NextEpisodeToAirStruct? _nextEpisodeToAir;
-  NextEpisodeToAirStruct get nextEpisodeToAir =>
-      _nextEpisodeToAir ?? NextEpisodeToAirStruct();
-  set nextEpisodeToAir(NextEpisodeToAirStruct? val) => _nextEpisodeToAir = val;
-
-  void updateNextEpisodeToAir(Function(NextEpisodeToAirStruct) updateFn) {
-    updateFn(_nextEpisodeToAir ??= NextEpisodeToAirStruct());
-  }
-
-  bool hasNextEpisodeToAir() => _nextEpisodeToAir != null;
 
   // "networks" field.
   List<NetworksStruct>? _networks;
@@ -309,17 +279,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
 
   bool hasProductionCountries() => _productionCountries != null;
 
-  // "seasons" field.
-  List<SeasonsStruct>? _seasons;
-  List<SeasonsStruct> get seasons => _seasons ?? const [];
-  set seasons(List<SeasonsStruct>? val) => _seasons = val;
-
-  void updateSeasons(Function(List<SeasonsStruct>) updateFn) {
-    updateFn(_seasons ??= []);
-  }
-
-  bool hasSeasons() => _seasons != null;
-
   // "spoken_languages" field.
   List<SpokenLanguagesStruct>? _spokenLanguages;
   List<SpokenLanguagesStruct> get spokenLanguages =>
@@ -392,13 +351,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         inProduction: data['in_production'] as bool?,
         languages: getDataList(data['languages']),
         lastAirDate: data['last_air_date'] as String?,
-        lastEpisodeToAir: data['last_episode_to_air'] is LastEpisodeToAirStruct
-            ? data['last_episode_to_air']
-            : LastEpisodeToAirStruct.maybeFromMap(data['last_episode_to_air']),
         name: data['name'] as String?,
-        nextEpisodeToAir: data['next_episode_to_air'] is NextEpisodeToAirStruct
-            ? data['next_episode_to_air']
-            : NextEpisodeToAirStruct.maybeFromMap(data['next_episode_to_air']),
         networks: getStructList(
           data['networks'],
           NetworksStruct.fromMap,
@@ -418,10 +371,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         productionCountries: getStructList(
           data['production_countries'],
           ProductionCountriesStruct.fromMap,
-        ),
-        seasons: getStructList(
-          data['seasons'],
-          SeasonsStruct.fromMap,
         ),
         spokenLanguages: getStructList(
           data['spoken_languages'],
@@ -450,9 +399,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         'in_production': _inProduction,
         'languages': _languages,
         'last_air_date': _lastAirDate,
-        'last_episode_to_air': _lastEpisodeToAir?.toMap(),
         'name': _name,
-        'next_episode_to_air': _nextEpisodeToAir?.toMap(),
         'networks': _networks?.map((e) => e.toMap()).toList(),
         'number_of_episodes': _numberOfEpisodes,
         'number_of_seasons': _numberOfSeasons,
@@ -466,7 +413,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
             _productionCompanies?.map((e) => e.toMap()).toList(),
         'production_countries':
             _productionCountries?.map((e) => e.toMap()).toList(),
-        'seasons': _seasons?.map((e) => e.toMap()).toList(),
         'spoken_languages': _spokenLanguages?.map((e) => e.toMap()).toList(),
         'status': _status,
         'tagline': _tagline,
@@ -492,7 +438,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         ),
         'episode_run_time': serializeParam(
           _episodeRunTime,
-          ParamType.String,
+          ParamType.int,
           isList: true,
         ),
         'first_air_date': serializeParam(
@@ -525,17 +471,9 @@ class TvIDResultsStruct extends FFFirebaseStruct {
           _lastAirDate,
           ParamType.String,
         ),
-        'last_episode_to_air': serializeParam(
-          _lastEpisodeToAir,
-          ParamType.DataStruct,
-        ),
         'name': serializeParam(
           _name,
           ParamType.String,
-        ),
-        'next_episode_to_air': serializeParam(
-          _nextEpisodeToAir,
-          ParamType.DataStruct,
         ),
         'networks': serializeParam(
           _networks,
@@ -585,11 +523,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
           ParamType.DataStruct,
           isList: true,
         ),
-        'seasons': serializeParam(
-          _seasons,
-          ParamType.DataStruct,
-          isList: true,
-        ),
         'spoken_languages': serializeParam(
           _spokenLanguages,
           ParamType.DataStruct,
@@ -635,9 +568,9 @@ class TvIDResultsStruct extends FFFirebaseStruct {
           true,
           structBuilder: CreatedByStruct.fromSerializableMap,
         ),
-        episodeRunTime: deserializeParam<String>(
+        episodeRunTime: deserializeParam<int>(
           data['episode_run_time'],
-          ParamType.String,
+          ParamType.int,
           true,
         ),
         firstAirDate: deserializeParam(
@@ -676,22 +609,10 @@ class TvIDResultsStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        lastEpisodeToAir: deserializeStructParam(
-          data['last_episode_to_air'],
-          ParamType.DataStruct,
-          false,
-          structBuilder: LastEpisodeToAirStruct.fromSerializableMap,
-        ),
         name: deserializeParam(
           data['name'],
           ParamType.String,
           false,
-        ),
-        nextEpisodeToAir: deserializeStructParam(
-          data['next_episode_to_air'],
-          ParamType.DataStruct,
-          false,
-          structBuilder: NextEpisodeToAirStruct.fromSerializableMap,
         ),
         networks: deserializeStructParam<NetworksStruct>(
           data['networks'],
@@ -751,12 +672,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
           true,
           structBuilder: ProductionCountriesStruct.fromSerializableMap,
         ),
-        seasons: deserializeStructParam<SeasonsStruct>(
-          data['seasons'],
-          ParamType.DataStruct,
-          true,
-          structBuilder: SeasonsStruct.fromSerializableMap,
-        ),
         spokenLanguages: deserializeStructParam<SpokenLanguagesStruct>(
           data['spoken_languages'],
           ParamType.DataStruct,
@@ -808,9 +723,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         inProduction == other.inProduction &&
         listEquality.equals(languages, other.languages) &&
         lastAirDate == other.lastAirDate &&
-        lastEpisodeToAir == other.lastEpisodeToAir &&
         name == other.name &&
-        nextEpisodeToAir == other.nextEpisodeToAir &&
         listEquality.equals(networks, other.networks) &&
         numberOfEpisodes == other.numberOfEpisodes &&
         numberOfSeasons == other.numberOfSeasons &&
@@ -822,7 +735,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         posterPath == other.posterPath &&
         listEquality.equals(productionCompanies, other.productionCompanies) &&
         listEquality.equals(productionCountries, other.productionCountries) &&
-        listEquality.equals(seasons, other.seasons) &&
         listEquality.equals(spokenLanguages, other.spokenLanguages) &&
         status == other.status &&
         tagline == other.tagline &&
@@ -844,9 +756,7 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         inProduction,
         languages,
         lastAirDate,
-        lastEpisodeToAir,
         name,
-        nextEpisodeToAir,
         networks,
         numberOfEpisodes,
         numberOfSeasons,
@@ -858,7 +768,6 @@ class TvIDResultsStruct extends FFFirebaseStruct {
         posterPath,
         productionCompanies,
         productionCountries,
-        seasons,
         spokenLanguages,
         status,
         tagline,
@@ -876,9 +785,7 @@ TvIDResultsStruct createTvIDResultsStruct({
   int? id,
   bool? inProduction,
   String? lastAirDate,
-  LastEpisodeToAirStruct? lastEpisodeToAir,
   String? name,
-  NextEpisodeToAirStruct? nextEpisodeToAir,
   int? numberOfEpisodes,
   int? numberOfSeasons,
   String? originalLanguage,
@@ -904,11 +811,7 @@ TvIDResultsStruct createTvIDResultsStruct({
       id: id,
       inProduction: inProduction,
       lastAirDate: lastAirDate,
-      lastEpisodeToAir: lastEpisodeToAir ??
-          (clearUnsetFields ? LastEpisodeToAirStruct() : null),
       name: name,
-      nextEpisodeToAir: nextEpisodeToAir ??
-          (clearUnsetFields ? NextEpisodeToAirStruct() : null),
       numberOfEpisodes: numberOfEpisodes,
       numberOfSeasons: numberOfSeasons,
       originalLanguage: originalLanguage,
@@ -977,22 +880,6 @@ Map<String, dynamic> getTvIDResultsFirestoreData(
     return {};
   }
   final firestoreData = mapToFirestore(tvIDResults.toMap());
-
-  // Handle nested data for "last_episode_to_air" field.
-  addLastEpisodeToAirStructData(
-    firestoreData,
-    tvIDResults.hasLastEpisodeToAir() ? tvIDResults.lastEpisodeToAir : null,
-    'last_episode_to_air',
-    forFieldValue,
-  );
-
-  // Handle nested data for "next_episode_to_air" field.
-  addNextEpisodeToAirStructData(
-    firestoreData,
-    tvIDResults.hasNextEpisodeToAir() ? tvIDResults.nextEpisodeToAir : null,
-    'next_episode_to_air',
-    forFieldValue,
-  );
 
   // Add any Firestore field values
   tvIDResults.firestoreUtilData.fieldValues

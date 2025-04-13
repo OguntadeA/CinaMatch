@@ -22,8 +22,6 @@ void main() async {
 
   setUpAll(() async {
     await initFirebase();
-
-    await FlutterFlowTheme.initialize();
   });
 
   setUp(() async {
@@ -38,7 +36,7 @@ void main() async {
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(find.byKey(const ValueKey('login-emailfield_wmxo')),
-        'ayishat0624@gmail.com');
+        'ayishat24@gmail.com');
     await tester.enterText(
         find.byKey(const ValueKey('login-passwordfield_s8k1')), 'Ayishat24');
     await tester.tap(find.byKey(const ValueKey('Button_9hm5')));
