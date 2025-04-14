@@ -129,7 +129,7 @@ void main() async {
         find.byKey(const ValueKey('Login_cd7d')), 'incorrectPassword');
     await tester.tap(find.byKey(const ValueKey('Button_9hm5')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
-    expect(find.text('Homepage'), findsNothing);
+    expect(find.byKey(const ValueKey('login-emailfield_wmxo')), findsWidgets);
   });
 }
 
