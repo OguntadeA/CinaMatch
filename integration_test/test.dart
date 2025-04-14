@@ -43,6 +43,78 @@ void main() async {
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     expect(find.byKey(const ValueKey('Text_f89u')), findsOneWidget);
   });
+
+  testWidgets('Successful account creation', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-EmailFieldnew_375e')),
+        'roquibat.adetunji@uri.edu');
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-PasswordFieldnew_n2cx')),
+        'cinamatch');
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-ConfirmPasswordFieldnew_w0an')),
+        'cinamatch');
+    await tester.tap(find.byKey(const ValueKey('Button_2icf')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    expect(find.byKey(const ValueKey('Text_f89u')), findsOneWidget);
+  });
+
+  testWidgets('Account Creation Weak Password', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(MyApp(
+      entryPage: SignupWidget(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-EmailFieldnew_375e')),
+        'zacharylerner24@gmail.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-PasswordFieldnew_n2cx')), 'pass');
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-ConfirmPasswordFieldnew_w0an')),
+        'pass');
+    await tester.tap(find.byKey(const ValueKey('Button_2icf')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+    expect(find.byKey(const ValueKey('Button_2icf')), findsOneWidget);
+  });
+
+  testWidgets('accountAlreadyExists', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.tap(find.byKey(const ValueKey('Button_w519')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.tap(find.byKey(const ValueKey('signup-EmailFieldnew_375e')));
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-EmailFieldnew_375e')),
+        'testemail@gmail.com');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester
+        .tap(find.byKey(const ValueKey('signup-PasswordFieldnew_n2cx')));
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-PasswordFieldnew_n2cx')), 'password');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester
+        .tap(find.byKey(const ValueKey('signup-ConfirmPasswordFieldnew_w0an')));
+    await tester.enterText(
+        find.byKey(const ValueKey('signup-ConfirmPasswordFieldnew_w0an')),
+        'password');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.tap(find.byKey(const ValueKey('Button_2icf')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+  });
 }
 
 // There are certain types of errors that can happen during tests but

@@ -225,6 +225,8 @@ class _SignupWidgetState extends State<SignupWidget>
                                         child: Container(
                                           width: 310.0,
                                           child: TextFormField(
+                                            key: ValueKey(
+                                                'signup-EmailFieldnew_375e'),
                                             controller: _model
                                                 .signupEmailFieldnewTextController,
                                             focusNode: _model
@@ -360,6 +362,8 @@ class _SignupWidgetState extends State<SignupWidget>
                                         child: Container(
                                           width: 310.0,
                                           child: TextFormField(
+                                            key: ValueKey(
+                                                'signup-PasswordFieldnew_n2cx'),
                                             controller: _model
                                                 .signupPasswordFieldnewTextController,
                                             focusNode: _model
@@ -493,6 +497,8 @@ class _SignupWidgetState extends State<SignupWidget>
                                         child: Container(
                                           width: 310.0,
                                           child: TextFormField(
+                                            key: ValueKey(
+                                                'signup-ConfirmPasswordFieldnew_w0an'),
                                             controller: _model
                                                 .signupConfirmPasswordFieldnewTextController,
                                             focusNode: _model
@@ -601,6 +607,7 @@ class _SignupWidgetState extends State<SignupWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: FFButtonWidget(
+                                        key: ValueKey('Button_2icf'),
                                         onPressed: () async {
                                           logFirebaseEvent(
                                               'SIGNUP_PAGE_SIGN_UP_BTN_ON_TAP');
