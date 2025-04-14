@@ -115,6 +115,22 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('Button_2icf')));
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
   });
+
+  testWidgets('Unsuccessful Login', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(const MyApp());
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+    await tester.tap(find.byKey(const ValueKey('login-emailfield_wmxo')));
+    await tester.enterText(find.byKey(const ValueKey('login-emailfield_wmxo')),
+        'incorrectemail@gmail.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('Login_cd7d')), 'incorrectPassword');
+    await tester.tap(find.byKey(const ValueKey('Button_9hm5')));
+    expect(find.text('Homepage'), findsNothing);
+  });
 }
 
 // There are certain types of errors that can happen during tests but
