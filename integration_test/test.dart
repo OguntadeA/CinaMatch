@@ -51,6 +51,8 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.tap(find.byKey(const ValueKey('Button_w519')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('signup-EmailFieldnew_375e')),
         'roquibat.adetunji@uri.edu');
