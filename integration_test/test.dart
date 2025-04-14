@@ -68,22 +68,20 @@ void main() async {
   testWidgets('Account Creation Weak Password', (WidgetTester tester) async {
     _overrideOnError();
 
-    await tester.pumpWidget(MyApp(
-      entryPage: SignupWidget(),
-    ));
+    await tester.pumpWidget(const MyApp());
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('signup-EmailFieldnew_375e')),
-        'zacharylerner24@gmail.com');
+        'roquibat.adetunji@uri.edu');
     await tester.enterText(
         find.byKey(const ValueKey('signup-PasswordFieldnew_n2cx')), 'pass');
     await tester.enterText(
         find.byKey(const ValueKey('signup-ConfirmPasswordFieldnew_w0an')),
         'pass');
     await tester.tap(find.byKey(const ValueKey('Button_2icf')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 1000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     expect(find.byKey(const ValueKey('Button_2icf')), findsOneWidget);
   });
 
