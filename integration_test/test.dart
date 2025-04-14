@@ -122,11 +122,12 @@ void main() async {
     await tester.pumpWidget(const MyApp());
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+    await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(find.byKey(const ValueKey('login-emailfield_wmxo')),
         'incorrectemail@gmail.com');
     await tester.enterText(
-        find.byKey(const ValueKey('Login_cd7d')), 'incorrectPassword');
+        find.byKey(const ValueKey('login-passwordfield_s8k1')),
+        'incorrectPassword');
     await tester.tap(find.byKey(const ValueKey('Button_9hm5')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     expect(find.byKey(const ValueKey('login-emailfield_wmxo')), findsWidgets);
