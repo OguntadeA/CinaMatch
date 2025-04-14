@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
@@ -389,6 +390,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   PlaceholderHomeWidget.routeName,
                                   context.mounted);
                               if (currentUserEmailVerified == true) {}
+                              logFirebaseEvent('Button_backend_call');
+
+                              await currentUserReference!.update({
+                                ...mapToFirestore(
+                                  {
+                                    'login_count': FieldValue.increment(1),
+                                  },
+                                ),
+                              });
 
                               _navigate();
                             },
