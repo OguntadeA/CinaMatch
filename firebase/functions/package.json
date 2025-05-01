@@ -23,10 +23,10 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
-    "serve": "firebase -P cinamatch2-0 emulators:start --only functions",
-    "shell": "firebase -P cinamatch2-0 functions:shell",
+    "serve": "firebase -P cinamatchprodenv emulators:start --only functions",
+    "shell": "firebase -P cinamatchprodenv functions:shell",
     "start": "npm run shell",
-    "logs": "firebase -P cinamatch2-0 functions:log",
+    "logs": "firebase -P cinamatchprodenv functions:log",
     "compile": "cp ../../tsconfig.template.json ./tsconfig-compile.json && tsc --project tsconfig-compile.json"
   },
   "engines": {

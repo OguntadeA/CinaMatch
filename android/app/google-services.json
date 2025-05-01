@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "799715338717",
-    "project_id": "cinamatch2-0",
-    "storage_bucket": "cinamatch2-0.firebasestorage.app"
+    "project_number": "271438424",
+    "project_id": "cinamatchprodenv",
+    "storage_bucket": "cinamatchprodenv.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:799715338717:android:2dc0e88e3104fad1956e34",
-        "android_client_info": {
-          "package_name": "com.mycompany.cinamatch"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCUFk_krRFHuyAbUPzObcvSpnNcNs949mc"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:799715338717:android:b9f9ad6100e0aefe956e34",
+        "mobilesdk_app_id": "1:271438424:android:708b4d079d0377204ff02d",
         "android_client_info": {
           "package_name": "com.uricsc305.cinamatch"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCUFk_krRFHuyAbUPzObcvSpnNcNs949mc"
+          "current_key": "AIzaSyAAXEf0WQ95eB1WaSMqy4cCwFisJNfrYvs"
         }
       ],
       "services": {

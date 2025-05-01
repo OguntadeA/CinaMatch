@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'add_to_watchlist_model.dart';
 export 'add_to_watchlist_model.dart';
 
@@ -62,6 +63,7 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 500.0,
       decoration: BoxDecoration(
         color: Color(0x00FFFFFF),
       ),
@@ -97,9 +99,22 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                       'Add to Watchlist',
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Inter Tight',
+                                font: GoogleFonts.interTight(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
                                 color: Color(0xFF15191C),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontStyle,
                               ),
                     ),
                     FlutterFlowIconButton(
@@ -150,136 +165,180 @@ class _AddToWatchlistWidgetState extends State<AddToWatchlistWidget> {
                       return Text(
                         'You have no watchlists, create one on the homepage',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: Color(0xFF14181B),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       );
                     },
                   ),
-                Container(
-                  width: double.infinity,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: StreamBuilder<List<WatchlistRecord>>(
-                    stream: queryWatchlistRecord(
-                      queryBuilder: (watchlistRecord) => watchlistRecord.where(
-                        'user',
-                        isEqualTo: currentUserReference,
-                      ),
+                if (currentUserReference?.id != null &&
+                    currentUserReference?.id != '')
+                  Container(
+                    width: double.infinity,
+                    height: 300.0,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<WatchlistRecord> columnWatchlistRecordList =
-                          snapshot.data!;
-
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: List.generate(
-                            columnWatchlistRecordList.length, (columnIndex) {
-                          final columnWatchlistRecord =
-                              columnWatchlistRecordList[columnIndex];
-                          return Container(
-                            width: double.infinity,
-                            height: 50.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'ADD_TO_WATCHLIST_Row_kjj6ayr6_ON_TAP');
-                                logFirebaseEvent('Row_google_analytics_event');
-                                logFirebaseEvent('itemAddedWatchlist');
-                                logFirebaseEvent('Row_bottom_sheet');
-                                Navigator.pop(context);
-                                logFirebaseEvent('Row_backend_call');
-
-                                await columnWatchlistRecord.reference.update({
-                                  ...mapToFirestore(
-                                    {
-                                      'movies': FieldValue.arrayUnion([
-                                        getMovieInWatchlistFirestoreData(
-                                          updateMovieInWatchlistStruct(
-                                            widget.movie,
-                                            clearUnsetFields: false,
-                                          ),
-                                          true,
-                                        )
-                                      ]),
-                                    },
-                                  ),
-                                });
-                                logFirebaseEvent('Row_show_snack_bar');
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Added to Watchlist ',
-                                      style: TextStyle(
-                                        color: Color(0xFFE2E2E2),
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor: Color(0xFF660202),
-                                  ),
-                                );
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 324.64,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFC2BCBC),
-                                      ),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        columnWatchlistRecord.name,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color: Color(0xFF121518),
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                    child: StreamBuilder<List<WatchlistRecord>>(
+                      stream: queryWatchlistRecord(
+                        queryBuilder: (watchlistRecord) =>
+                            watchlistRecord.where(
+                          'user',
+                          isEqualTo: currentUserReference,
+                        ),
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
                           );
-                        }).divide(SizedBox(height: 10.0)),
-                      );
-                    },
+                        }
+                        List<WatchlistRecord> columnWatchlistRecordList =
+                            snapshot.data!;
+
+                        return SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children:
+                                List.generate(columnWatchlistRecordList.length,
+                                    (columnIndex) {
+                              final columnWatchlistRecord =
+                                  columnWatchlistRecordList[columnIndex];
+                              return Container(
+                                width: double.infinity,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'ADD_TO_WATCHLIST_Row_kjj6ayr6_ON_TAP');
+                                    logFirebaseEvent(
+                                        'Row_google_analytics_event');
+                                    logFirebaseEvent('itemAddedWatchlist');
+                                    logFirebaseEvent('Row_bottom_sheet');
+                                    Navigator.pop(context);
+                                    logFirebaseEvent('Row_backend_call');
+
+                                    await columnWatchlistRecord.reference
+                                        .update({
+                                      ...mapToFirestore(
+                                        {
+                                          'movies': FieldValue.arrayUnion([
+                                            getMovieInWatchlistFirestoreData(
+                                              updateMovieInWatchlistStruct(
+                                                widget.movie,
+                                                clearUnsetFields: false,
+                                              ),
+                                              true,
+                                            )
+                                          ]),
+                                        },
+                                      ),
+                                    });
+                                    logFirebaseEvent('Row_show_snack_bar');
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Added to Watchlist ',
+                                          style: TextStyle(
+                                            color: Color(0xFFE2E2E2),
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor: Color(0xFF660202),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 324.6,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: Color(0xFFC2BCBC),
+                                          ),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            columnWatchlistRecord.name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF121518),
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }).divide(SizedBox(height: 10.0)),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
               ].divide(SizedBox(height: 16.0)),
             ),
           ),

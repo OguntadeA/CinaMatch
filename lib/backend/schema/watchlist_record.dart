@@ -35,6 +35,11 @@ class WatchlistRecord extends FirestoreRecord {
   DocumentReference? get user => _user;
   bool hasUser() => _user != null;
 
+  // "stringRef" field.
+  String? _stringRef;
+  String get stringRef => _stringRef ?? '';
+  bool hasStringRef() => _stringRef != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _movies = getStructList(
@@ -43,6 +48,7 @@ class WatchlistRecord extends FirestoreRecord {
     );
     _description = snapshotData['description'] as String?;
     _user = snapshotData['user'] as DocumentReference?;
+    _stringRef = snapshotData['stringRef'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -83,12 +89,14 @@ Map<String, dynamic> createWatchlistRecordData({
   String? name,
   String? description,
   DocumentReference? user,
+  String? stringRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
       'description': description,
       'user': user,
+      'stringRef': stringRef,
     }.withoutNulls,
   );
 
@@ -104,12 +112,13 @@ class WatchlistRecordDocumentEquality implements Equality<WatchlistRecord> {
     return e1?.name == e2?.name &&
         listEquality.equals(e1?.movies, e2?.movies) &&
         e1?.description == e2?.description &&
-        e1?.user == e2?.user;
+        e1?.user == e2?.user &&
+        e1?.stringRef == e2?.stringRef;
   }
 
   @override
-  int hash(WatchlistRecord? e) =>
-      const ListEquality().hash([e?.name, e?.movies, e?.description, e?.user]);
+  int hash(WatchlistRecord? e) => const ListEquality()
+      .hash([e?.name, e?.movies, e?.description, e?.user, e?.stringRef]);
 
   @override
   bool isValidKey(Object? o) => o is WatchlistRecord;
