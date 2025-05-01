@@ -43,3 +43,35 @@ String findCategoryBasedOnNPS(double npsScore) {
     return 'Invalid Score';
   }
 }
+
+bool? findJsonEmpty(dynamic json) {
+  // checks if a given json file is empty
+  if (json is Map) {
+    return json.isEmpty;
+  } else if (json is List) {
+    return json.isEmpty;
+  }
+  return null; // Return null if json is neither a Map nor a List
+}
+
+bool? popularityChecker(String? stringPopularity) {
+  // conver the string to a double, then check if the value of the double is larger than 0.1 if it is then return true else return false
+  if (stringPopularity == null) return null; // Check for null
+  double? popularityValue =
+      double.tryParse(stringPopularity); // Convert string to double
+  if (popularityValue == null)
+    return false; // Check if conversion was successful
+  return popularityValue > 0.1; // Return true if larger than 0.1, else false
+}
+
+bool? searchDuration(
+  DateTime? sessionstart,
+  DateTime? sessionend,
+) {
+  if (sessionstart == null || sessionend == null) return null;
+  return (sessionend.difference(sessionstart).inSeconds.toDouble()) > 5;
+}
+
+String? shareURL(String? shareHex) {
+  return 'https://cina-match-5x88o5.flutterflow.app/watchlist/$shareHex';
+}

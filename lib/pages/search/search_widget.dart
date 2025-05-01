@@ -11,6 +11,7 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -86,7 +87,7 @@ class _SearchWidgetState extends State<SearchWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: Color(0xF5C2C2C2),
+            backgroundColor: FlutterFlowTheme.of(context).grey3,
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -109,7 +110,7 @@ class _SearchWidgetState extends State<SearchWidget> {
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color(0xF5C2C2C2),
+            backgroundColor: FlutterFlowTheme.of(context).grey3,
             floatingActionButton: Align(
               alignment: AlignmentDirectional(-9.0, 0.0),
               child: FloatingActionButton(
@@ -192,11 +193,24 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -247,9 +261,22 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -276,9 +303,22 @@ class _SearchWidgetState extends State<SearchWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                               Icon(
@@ -343,7 +383,7 @@ class _SearchWidgetState extends State<SearchWidget> {
 
                                           context.pushNamed(
                                             WatchlistWidget.routeName,
-                                            queryParameters: {
+                                            pathParameters: {
                                               'watchlistReference':
                                                   serializeParam(
                                                 columnWatchlistRecord.reference,
@@ -357,8 +397,27 @@ class _SearchWidgetState extends State<SearchWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
-                                                fontFamily: 'Inter',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLarge
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -393,9 +452,22 @@ class _SearchWidgetState extends State<SearchWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                             InkWell(
@@ -426,468 +498,605 @@ class _SearchWidgetState extends State<SearchWidget> {
             ),
             body: Stack(
               children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF480303),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 2.0,
-                            color: Color(0x33000000),
-                            offset: Offset(
-                              0.0,
-                              2.0,
-                            ),
-                            spreadRadius: 4.0,
-                          )
-                        ],
-                      ),
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 20.0),
-                          child: Text(
-                            'Search',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Playfair Display',
-                                  color: Colors.white,
-                                  fontSize: 35.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ),
+                Container(
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).red2,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 2.0,
+                              color: Color(0x33000000),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
+                              spreadRadius: 4.0,
+                            )
+                          ],
                         ),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(14.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: TextFormField(
-                            controller: _model.textController,
-                            focusNode: _model.textFieldFocusNode,
-                            onFieldSubmitted: (_) async {
-                              logFirebaseEvent(
-                                  'SEARCH_TextField_1xnalr30_ON_TEXTFIELD_S');
-                              logFirebaseEvent(
-                                  'TextField_google_analytics_event');
-                              logFirebaseEvent('userSearch');
-                              logFirebaseEvent('TextField_update_page_state');
-                              _model.userSearch = _model.textController.text;
-                              _model.searchCount = _model.searchCount + 1;
-                              safeSetState(() {});
-                              logFirebaseEvent('TextField_backend_call');
-
-                              await UserSearchRecord.collection
-                                  .doc()
-                                  .set(createUserSearchRecordData(
-                                    search: _model.userSearch,
-                                    timestamp: getCurrentTimestamp,
-                                  ));
-                              logFirebaseEvent('TextField_backend_call');
-                              _model.apiResulti1t = await SearchMoviesCall.call(
-                                search: _model.userSearch,
-                              );
-
-                              safeSetState(() {});
-                            },
-                            autofocus: false,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: true,
-                              labelStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Color(0xFF56626B),
-                                    letterSpacing: 0.0,
-                                  ),
-                              hintText: 'Search a Movie / TV Show...',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    letterSpacing: 0.0,
-                                  ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              prefixIcon: Icon(
-                                Icons.search_sharp,
-                              ),
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: Color(0xFF121518),
-                                  letterSpacing: 0.0,
-                                ),
-                            cursorColor: Color(0xFF101416),
-                            validator: _model.textControllerValidator
-                                .asValidator(context),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
-                            child: FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController ??=
-                                  FormFieldController<String>(
-                                _model.dropDownValue ??= 'All',
-                              ),
-                              options: ['All', 'Movies', 'TV'],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.dropDownValue = val),
-                              width: 127.34,
-                              height: 40.0,
-                              textStyle: FlutterFlowTheme.of(context)
+                                0.0, 0.0, 0.0, 20.0),
+                            child: Text(
+                              'Search',
+                              style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Playfair Display',
-                                    color: Color(0xFF111517),
+                                    font: GoogleFonts.playfairDisplay(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    fontSize: 35.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
-                              hintText: 'Media Type',
-                              icon: Icon(
-                                Icons.keyboard_arrow_down_rounded,
-                                color: Color(0xFF525F68),
-                                size: 24.0,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 8.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              hidesUnderline: true,
-                              isOverButton: false,
-                              isSearchable: false,
-                              isMultiSelect: false,
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Builder(
-                          builder: (context) {
-                            final items = (getJsonField(
-                                  searchSearchMoviesResponse.jsonBody,
-                                  r'''$.results''',
-                                  true,
-                                )
-                                            ?.toList()
-                                            .map<MultiSearchResultsStruct?>(
-                                                MultiSearchResultsStruct
-                                                    .maybeFromMap)
-                                            .toList()
-                                        as Iterable<MultiSearchResultsStruct?>)
-                                    .withoutNulls
-                                    .toList() ??
-                                [];
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsets.all(14.0),
+                          child: Container(
+                            width: double.infinity,
+                            child: TextFormField(
+                              controller: _model.textController,
+                              focusNode: _model.textFieldFocusNode,
+                              onFieldSubmitted: (_) async {
+                                logFirebaseEvent(
+                                    'SEARCH_TextField_1xnalr30_ON_TEXTFIELD_S');
+                                logFirebaseEvent(
+                                    'TextField_google_analytics_event');
+                                logFirebaseEvent('userSearch');
+                                logFirebaseEvent('TextField_update_page_state');
+                                _model.userSearch = _model.textController.text;
+                                _model.searchCount = _model.searchCount + 1;
+                                safeSetState(() {});
+                                logFirebaseEvent('TextField_backend_call');
 
-                            return ListView.separated(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: items.length,
-                              separatorBuilder: (_, __) =>
-                                  SizedBox(height: 10.0),
-                              itemBuilder: (context, itemsIndex) {
-                                final itemsItem = items[itemsIndex];
-                                return Visibility(
-                                  visible: () {
-                                    if (_model.dropDownValue == 'All') {
-                                      return true;
-                                    } else if ((_model.dropDownValue ==
-                                            'Movies') &&
-                                        (itemsItem.mediaType == 'movie')) {
-                                      return true;
-                                    } else if ((_model.dropDownValue == 'TV') &&
-                                        (itemsItem.mediaType == 'tv')) {
-                                      return true;
-                                    } else {
-                                      return false;
-                                    }
-                                  }(),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'SEARCH_PAGE_Container_plxwinjf_ON_TAP');
-                                        if (itemsItem.mediaType == 'tv') {
+                                await UserSearchRecord.collection
+                                    .doc()
+                                    .set(createUserSearchRecordData(
+                                      search: _model.userSearch,
+                                      timestamp: getCurrentTimestamp,
+                                    ));
+                                logFirebaseEvent('TextField_backend_call');
+                                _model.apiResulti1t =
+                                    await SearchMoviesCall.call(
+                                  search: _model.userSearch,
+                                );
+
+                                safeSetState(() {});
+                              },
+                              autofocus: false,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                isDense: true,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.playfairDisplay(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xFF56626B),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                hintText: 'Search a Movie / TV Show...',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                filled: true,
+                                fillColor: Colors.white,
+                                prefixIcon: Icon(
+                                  Icons.search_sharp,
+                                ),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF121518),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                              cursorColor: Color(0xFF101416),
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FlutterFlowDropDown<String>(
+                                controller: _model.dropDownValueController ??=
+                                    FormFieldController<String>(
+                                  _model.dropDownValue ??= 'All',
+                                ),
+                                options: ['All', 'Movies', 'TV'],
+                                onChanged: (val) => safeSetState(
+                                    () => _model.dropDownValue = val),
+                                width: 127.3,
+                                height: 40.0,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.playfairDisplay(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xFF111517),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                hintText: 'Media Type',
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: Color(0xFF525F68),
+                                  size: 24.0,
+                                ),
+                                fillColor: Colors.white,
+                                elevation: 2.0,
+                                borderColor: Colors.transparent,
+                                borderWidth: 0.0,
+                                borderRadius: 8.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                hidesUnderline: true,
+                                isOverButton: false,
+                                isSearchable: false,
+                                isMultiSelect: false,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.all(2.0),
+                          child: Builder(
+                            builder: (context) {
+                              final items = (getJsonField(
+                                    searchSearchMoviesResponse.jsonBody,
+                                    r'''$.results''',
+                                    true,
+                                  )
+                                              ?.toList()
+                                              .map<MultiSearchResultsStruct?>(
+                                                  MultiSearchResultsStruct
+                                                      .maybeFromMap)
+                                              .toList()
+                                          as Iterable<
+                                              MultiSearchResultsStruct?>)
+                                      .withoutNulls
+                                      .toList() ??
+                                  [];
+
+                              return ListView.separated(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: items.length,
+                                separatorBuilder: (_, __) =>
+                                    SizedBox(height: 10.0),
+                                itemBuilder: (context, itemsIndex) {
+                                  final itemsItem = items[itemsIndex];
+                                  return Visibility(
+                                    visible: () {
+                                      if (_model.dropDownValue == 'All') {
+                                        return true;
+                                      } else if ((_model.dropDownValue ==
+                                              'Movies') &&
+                                          (itemsItem.mediaType == 'movie')) {
+                                        return true;
+                                      } else if ((_model.dropDownValue ==
+                                              'TV') &&
+                                          (itemsItem.mediaType == 'tv')) {
+                                        return true;
+                                      } else {
+                                        return false;
+                                      }
+                                    }(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
                                           logFirebaseEvent(
-                                              'Container_navigate_to');
+                                              'SEARCH_PAGE_Container_plxwinjf_ON_TAP');
+                                          if (itemsItem.mediaType == 'tv') {
+                                            logFirebaseEvent(
+                                                'Container_navigate_to');
 
-                                          context.pushNamed(
-                                            TvDetailsWidget.routeName,
-                                            queryParameters: {
-                                              'id': serializeParam(
-                                                itemsItem.id,
-                                                ParamType.int,
-                                              ),
-                                            }.withoutNulls,
-                                          );
-                                        } else {
-                                          logFirebaseEvent(
-                                              'Container_navigate_to');
-
-                                          context.pushNamed(
-                                            MovieDetailsWidget.routeName,
-                                            queryParameters: {
-                                              'id': serializeParam(
-                                                itemsItem.id,
-                                                ParamType.int,
-                                              ),
-                                            }.withoutNulls,
-                                          );
-                                        }
-                                      },
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 173.3,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(18.0),
-                                          border: Border.all(
-                                            color: Color(0xFF868383),
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  functions.urlConcatinator(
-                                                      itemsItem.backdropPath),
-                                                  'https://picsum.photos/seed/374/600',
+                                            context.pushNamed(
+                                              TvDetailsWidget.routeName,
+                                              queryParameters: {
+                                                'id': serializeParam(
+                                                  itemsItem.id,
+                                                  ParamType.int,
                                                 ),
-                                                width: 125.0,
-                                                height: 200.0,
-                                                fit: BoxFit.cover,
-                                                alignment: Alignment(0.0, 0.0),
-                                                errorBuilder: (context, error,
-                                                        stackTrace) =>
-                                                    Image.asset(
-                                                  'assets/images/error_image.jpg',
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            logFirebaseEvent(
+                                                'Container_navigate_to');
+
+                                            context.pushNamed(
+                                              MovieDetailsWidget.routeName,
+                                              queryParameters: {
+                                                'id': serializeParam(
+                                                  itemsItem.id,
+                                                  ParamType.int,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          }
+                                        },
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 173.3,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(18.0),
+                                            border: Border.all(
+                                              color: Color(0xFF868383),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  valueOrDefault<String>(
+                                                    functions.urlConcatinator(
+                                                        itemsItem.backdropPath),
+                                                    'https://picsum.photos/seed/374/600',
+                                                  ),
                                                   width: 125.0,
                                                   height: 200.0,
                                                   fit: BoxFit.cover,
                                                   alignment:
                                                       Alignment(0.0, 0.0),
+                                                  errorBuilder: (context, error,
+                                                          stackTrace) =>
+                                                      Image.asset(
+                                                    'assets/images/error_image.jpg',
+                                                    width: 125.0,
+                                                    height: 200.0,
+                                                    fit: BoxFit.cover,
+                                                    alignment:
+                                                        Alignment(0.0, 0.0),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Container(
-                                              width: 144.67,
-                                              height: 100.0,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                              ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    child: Text(
-                                                      itemsItem.mediaType ==
-                                                              'movie'
-                                                          ? itemsItem.title
-                                                          : itemsItem.name
-                                                              .maybeHandleOverflow(
-                                                              maxChars: 30,
-                                                              replacement: '…',
-                                                            ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Playfair Display',
-                                                            color: Color(
-                                                                0xFF0D1012),
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                              Container(
+                                                width: 144.67,
+                                                height: 100.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        itemsItem.mediaType ==
+                                                                'movie'
+                                                            ? itemsItem.title
+                                                            : itemsItem.name
+                                                                .maybeHandleOverflow(
+                                                                maxChars: 30,
+                                                                replacement:
+                                                                    '…',
+                                                              ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .playfairDisplay(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF0D1012),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Text(
-                                                      valueOrDefault<String>(
+                                                    Expanded(
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          itemsItem.overview,
+                                                          'Movie Description',
+                                                        ).maybeHandleOverflow(
+                                                          maxChars: 100,
+                                                          replacement: '…',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .playfairDisplay(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF121619),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 10.0)),
+                                                ),
+                                              ),
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'SEARCH_PAGE_ADD_BTN_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Button_google_analytics_event');
+                                                  logFirebaseEvent(
+                                                      'watchlistItemAdd');
+                                                  logFirebaseEvent(
+                                                      'Button_update_page_state');
+                                                  _model.movie =
+                                                      MovieInWatchlistStruct(
+                                                    title:
+                                                        itemsItem.mediaType ==
+                                                                'tv'
+                                                            ? itemsItem.name
+                                                            : itemsItem.title,
+                                                    description:
                                                         itemsItem.overview,
-                                                        'Movie Description',
-                                                      ).maybeHandleOverflow(
-                                                        maxChars: 100,
-                                                        replacement: '…',
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodySmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Playfair Display',
-                                                            color: Color(
-                                                                0xFF121619),
-                                                            letterSpacing: 0.0,
+                                                    imagePath: functions
+                                                        .urlConcatinator(
+                                                            itemsItem
+                                                                .posterPath),
+                                                    id: itemsItem.id,
+                                                    mediaType:
+                                                        itemsItem.mediaType,
+                                                  );
+                                                  safeSetState(() {});
+                                                  logFirebaseEvent(
+                                                      'Button_bottom_sheet');
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    enableDrag: false,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              AddToWatchlistWidget(
+                                                            movie:
+                                                                _model.movie!,
                                                           ),
-                                                    ),
-                                                  ),
-                                                ].divide(
-                                                    SizedBox(height: 10.0)),
-                                              ),
-                                            ),
-                                            FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'SEARCH_PAGE_ADD_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_google_analytics_event');
-                                                logFirebaseEvent(
-                                                    'watchlistItemAdd');
-                                                logFirebaseEvent(
-                                                    'Button_update_page_state');
-                                                _model.movie =
-                                                    MovieInWatchlistStruct(
-                                                  title: itemsItem.mediaType ==
-                                                          'tv'
-                                                      ? itemsItem.name
-                                                      : itemsItem.title,
-                                                  description:
-                                                      itemsItem.overview,
-                                                  imagePath:
-                                                      functions.urlConcatinator(
-                                                          itemsItem.posterPath),
-                                                  id: itemsItem.id,
-                                                );
-                                                safeSetState(() {});
-                                                logFirebaseEvent(
-                                                    'Button_bottom_sheet');
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            AddToWatchlistWidget(
-                                                          movie: _model.movie!,
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              },
-                                              text: 'Add',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFF480303),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Playfair Display',
-                                                          color: Colors.white,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
+                                                },
+                                                text: 'Add',
+                                                options: FFButtonOptions(
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .red1,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            font: GoogleFonts
+                                                                .playfairDisplay(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                            ),
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
                                               ),
-                                            ),
-                                          ].divide(SizedBox(width: 5.0)),
+                                            ].divide(SizedBox(width: 5.0)),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                  ].divide(SizedBox(height: 5.0)),
+                    ].divide(SizedBox(height: 5.0)),
+                  ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-0.91, -0.93),

@@ -1,16 +1,24 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'us_struct.dart';
 export 'belongs_to_collection_struct.dart';
+export 'buy_struct.dart';
 export 'created_by_struct.dart';
+export 'flatrate_struct.dart';
+export 'free_struct.dart';
 export 'genres_struct.dart';
+export 'get_providers_t_v_struct.dart';
 export 'last_episode_to_air_struct.dart';
 export 'movie_id_results_struct.dart';
 export 'movie_in_watchlist_struct.dart';
 export 'multi_search_results_struct.dart';
 export 'networks_struct.dart';
 export 'next_episode_to_air_struct.dart';
+export 'popularity_struct.dart';
 export 'production_companies_struct.dart';
 export 'production_countries_struct.dart';
+export 'recommendation_search_struct.dart';
+export 'results_u_s_struct.dart';
 export 'seasons_struct.dart';
 export 'spoken_languages_struct.dart';
 export 'tv_i_d_results_struct.dart';

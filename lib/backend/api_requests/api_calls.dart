@@ -152,6 +152,54 @@ class SearchTVIDCall {
   }
 }
 
+class SearchProvidersIDMoviesCall {
+  static Future<ApiCallResponse> call({
+    int? movieId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Search Providers ID Movies',
+      apiUrl: 'https://api.themoviedb.org/3/movie/${movieId}/watch/providers',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
+        'accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SearchProvidersIDTVCall {
+  static Future<ApiCallResponse> call({
+    int? seriesId,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Search Providers ID TV',
+      apiUrl: 'https://api.themoviedb.org/3/tv/${seriesId}/watch/providers',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
+        'accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: true,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class SearchMoviesCall {
   static Future<ApiCallResponse> call({
     String? search = '',
@@ -172,6 +220,58 @@ class SearchMoviesCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: true,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SearchAIMovieCall {
+  static Future<ApiCallResponse> call({
+    String? movieName = '',
+    String? releaseYear = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Search AI Movie',
+      apiUrl:
+          'https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&primary_release_year=${releaseYear}&page=1',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
+        'accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SearchAITVCall {
+  static Future<ApiCallResponse> call({
+    String? tvName = '',
+    String? releaseYear = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Search AI TV',
+      apiUrl:
+          'https://api.themoviedb.org/3/search/tv?query=${tvName}&first_air_date_year=${releaseYear}&include_adult=false&language=en-US&page=1',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMDM2M2MyZGQ5YWM2ZWIyZmE1OTJmOTM0N2M2MThhNiIsIm5iZiI6MTc0MTAzMTMyNS40MzI5OTk4LCJzdWIiOiI2N2M2MDc5ZGVjZTAxY2VkYTFlNzg0MmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3BdxHwV7uPlrvMrJuTa25YtfNwaP4zzUfJLJP6EQOmg',
+        'accept': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
       cache: false,
       isStreamingApi: false,
       alwaysAllowBody: false,

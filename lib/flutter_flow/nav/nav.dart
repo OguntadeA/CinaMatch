@@ -110,18 +110,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => SearchWidget(),
         ),
         FFRoute(
-          name: WatchlistWidget.routeName,
-          path: WatchlistWidget.routePath,
-          builder: (context, params) => WatchlistWidget(
-            watchlistReference: params.getParam(
-              'watchlistReference',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['watchlist'],
-            ),
-          ),
-        ),
-        FFRoute(
           name: MovieDetailsWidget.routeName,
           path: MovieDetailsWidget.routePath,
           builder: (context, params) => MovieDetailsWidget(
@@ -145,6 +133,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: RecommendationsWidget.routeName,
           path: RecommendationsWidget.routePath,
           builder: (context, params) => RecommendationsWidget(),
+        ),
+        FFRoute(
+          name: WatchlistWidget.routeName,
+          path: WatchlistWidget.routePath,
+          builder: (context, params) => WatchlistWidget(
+            watchlistReference: params.getParam(
+              'watchlistReference',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['watchlist'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -7,8 +7,7 @@ Future initializeFirebaseRemoteConfig() async {
       minimumFetchInterval: const Duration(hours: 1),
     ));
     await FirebaseRemoteConfig.instance.setDefaults(const {
-      'login_bg': '#be9a5c',
-      'login_bg1': '#808080',
+      'login_bg': '57636c',
     });
     await FirebaseRemoteConfig.instance.fetchAndActivate();
   } catch (error) {
